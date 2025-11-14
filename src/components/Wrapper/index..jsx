@@ -4,7 +4,7 @@ import styles from "./index.module.scss";
 // import AddTasks from "../AddTasks";
 // import UpcomingTasks from "../UpcomingTasks";
 
-const Content = () => {
+const Wrapper = () => {
 	// const [data, setData] = useState([]);
 	// const [input, setInput] = useState('');
 
@@ -16,4 +16,4 @@ const Content = () => {
 	);
 };
 
-export default Content;
+export default Wrapper;
