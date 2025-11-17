@@ -1,10 +1,19 @@
+import { useState } from "react";
+
 import styles from "./index.module.scss";
+
 import mojo from "../../images/mojo.jpg";
 import { ChevronDown } from "../../images/icons";
 import { ChevronUp } from "../../images/icons";
 import { SplitScreen } from "../../images/icons";
 
 const Header = () => {
+	const [dropDown, setDropDown] = useState(true);
+
+	const dropdownHandler = () => {
+		setDropDown(!dropDown);
+		console.log("Clicked");
+	};
 	return (
 		<div className={styles.header}>
 			<div className={styles.mojoHeader}>
@@ -15,11 +24,11 @@ const Header = () => {
 					/>
 				</div>
 				<h1>Lukasz</h1>
-				<div className={styles.chevron}>
-					<ChevronDown />
+				<div onClick={dropdownHandler}>
+					{dropDown ? <ChevronDown /> : <ChevronUp />}
 				</div>
 			</div>
-			<div className={styles.splitScreen}>
+			<div className={styles.split}>
 				<SplitScreen />
 			</div>
 		</div>

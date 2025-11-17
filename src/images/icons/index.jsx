@@ -14,7 +14,7 @@ export const ChevronUp = (props) => (
 	<svg
 		width='13'
 		height='13'
-		viewBox='0 0 23 13'
+		viewBox='0 0 13 13'
 		fill='currentColor'
 		xmlns='http://www.w3.org/2000/svg'
 		{...props}>
@@ -39,9 +39,9 @@ export const SplitScreen = (props) => (
 			rx='2'
 			fill='none'
 			stroke='currentColor'
-			stroke-width='2'
-			stroke-linecap='round'
-			stroke-linejoin='round'
+			strokeWidth='2'
+			strokeLinecap='round'
+			strokeLinejoin='round'
 		/>
 		<line
 			x1='12'
@@ -49,9 +49,9 @@ export const SplitScreen = (props) => (
 			x2='12'
 			y2='20'
 			stroke='currentColor'
-			stroke-width='2'
-			stroke-linecap='round'
-			stroke-linejoin='round'
+			strokeWidth='2'
+			strokeLinecap='round'
+			strokeLinejoin='round'
 		/>
 	</svg>
 );
