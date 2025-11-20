@@ -3,13 +3,20 @@
 	justify-content: right;
 	width: 90%;
 	background-color: red;
+	background-color: #393a3e;
 
 	input {
 		width: 90%;
 		padding: 2em;
-		background: #fcfcfc;
-		border: 1px solid #aaa;
-		border-radius: 5px;
-		box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+		background: #393a3e;
+		// border-radius: 5px;
+		// box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+		border: none;
+		background-color: #393a3e;
+	}
+
+	img {
+		border: none;
+		background-color: #393a3e;
 	}
 }

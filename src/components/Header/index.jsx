@@ -2,10 +2,10 @@ import { useState } from "react";
 
 import styles from "./index.module.scss";
 
-import mojo from "../../images/mojo.jpg";
-import { ChevronDown } from "../../images/icons";
-import { ChevronUp } from "../../images/icons";
-import { SplitScreen } from "../../images/icons";
+import mojo from "../images/mojo.jpg";
+import { ChevronDown } from "../images/icons";
+import { ChevronUp } from "../images/icons";
+import { SplitScreen } from "../images/icons";
 
 const Header = () => {
 	const [dropDown, setDropDown] = useState(true);

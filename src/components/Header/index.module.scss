@@ -6,7 +6,7 @@
 	font-family: Lato, sans-serif;
 	.mojoHeader {
 		display: flex;
-		justify-content: space-around;
+		justify-content: center;
 		width: 50%;
 		align-items: center;
 
@@ -25,10 +25,11 @@
 
 	.split {
 		display: flex;
+		margin: auto;
 		justify-content: right;
 		align-items: center;
 		width: 50%;
-		padding-left: 12rem;
+		padding-left: 16rem;
 	}
 
 	svg {
