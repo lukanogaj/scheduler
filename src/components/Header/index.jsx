@@ -3,6 +3,7 @@ import { useState } from "react";
 import styles from "./index.module.scss";
 
 import mojo from "../images/mojo.jpg";
+import splitScreen from "../images/split.png";
 import { ChevronDown } from "../images/icons";
 import { ChevronUp } from "../images/icons";
 import { SplitScreen } from "../images/icons";
@@ -24,12 +25,17 @@ const Header = () => {
 					/>
 				</div>
 				<h1>Lukasz</h1>
-				<div onClick={dropdownHandler}>
+				<div
+					className={styles.dropDownHandler}
+					onClick={dropdownHandler}>
 					{dropDown ? <ChevronDown /> : <ChevronUp />}
 				</div>
 			</div>
 			<div className={styles.split}>
-				<SplitScreen />
+				<img
+					src={splitScreen}
+					alt=''
+				/>
 			</div>
 		</div>
 	);
