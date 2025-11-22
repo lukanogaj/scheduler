@@ -1,22 +1,24 @@
 .search {
 	display: flex;
 	justify-content: right;
-	width: 90%;
+	position: relative;
+	width: 100%;
+	height: 10%;
 	background-color: red;
-	background-color: #393a3e;
+	background-color: #2f3137;
 
 	input {
-		width: 90%;
+		width: 100%;
 		padding: 2em;
 		background: #393a3e;
+		border-radius: 2em;
 		// border-radius: 5px;
 		// box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
 		border: none;
 		background-color: #393a3e;
 	}
 
-	img {
-		border: none;
-		background-color: #393a3e;
+	input::placeholder {
+		font-size: 2em;
 	}
 }
