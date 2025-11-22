@@ -1,22 +1,24 @@
 .addTaskControl {
 	display: flex;
+	justify-content: flex-start;
 	align-items: center;
 	padding-left: 2rem;
 	font-family: "Lato", sans-serif;
 	font-weight: 400;
-
+	background-color: red;
 	span {
 		display: inline-block;
 		color: #a8c6ea;
 		width: 30px;
-		font-size: 8em;
-		padding: 0 8rem 0 0.1rem;
-		font-weight: 300;
+		font-size: 7em;
+		font-weight: 200;
 	}
 	h1 {
 		display: inline-block;
 		color: #a8c6ea;
-		font-size: 3.6em;
+		font-size: 3.4em;
 		font-weight: 400;
+		padding-left: 1.5em;
+		letter-spacing: 0.01em;
 	}
 }
