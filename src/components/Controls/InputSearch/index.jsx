@@ -1,10 +1,9 @@
 import styles from "./index.module.scss";
-import searchIcon from "../../images/search-trans.png";
 import { IoSearchOutline } from "react-icons/io5";
 
 const SearchControl = () => {
 	const iconPosition = {
-		color: "white",
+		color: "#A9ACB0",
 		position: "absolute",
 		top: "24%",
 		right: "2%",
