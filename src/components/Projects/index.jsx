@@ -1,11 +1,13 @@
 import styles from "./index.module.scss";
+import ProjectsTechUpgrade from "../ProjectsTechUpgrade";
+import ProjectsNewDesign from "../ProjectsNewDesign";
 
 const Projects = () => {
 	return (
 		<div className={styles.projects}>
 			<h3>Projects</h3>
-			<div className={styles.techUpgrade}></div>
-			<div className={styles.newDesign}></div>
+			<ProjectsTechUpgrade />
+			<ProjectsNewDesign />
 		</div>
 	);
 };
