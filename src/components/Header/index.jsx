@@ -3,13 +3,15 @@ import { useState } from "react";
 import styles from "./index.module.scss";
 
 import mojo from "../images/mojo.jpg";
-import splitScreen from "../images/split.png";
 import { ChevronDown } from "../images/icons";
 import { ChevronUp } from "../images/icons";
-import { SplitScreen } from "../images/icons";
-
+import { BsLayoutSplit } from "react-icons/bs";
 const Header = () => {
 	const [dropDown, setDropDown] = useState(true);
+	const icon = {
+		color: "#DBDDE1",
+		fontSize: "3em",
+	};
 
 	const dropdownHandler = () => {
 		setDropDown(!dropDown);
@@ -32,10 +34,7 @@ const Header = () => {
 				</div>
 			</div>
 			<div className={styles.split}>
-				<img
-					src={splitScreen}
-					alt=''
-				/>
+				<BsLayoutSplit style={icon} />
 			</div>
 		</div>
 	);

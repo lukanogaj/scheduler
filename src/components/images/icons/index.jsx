@@ -24,12 +24,13 @@ export const ChevronUp = (props) => (
 
 export const SplitScreen = (props) => (
 	<svg
-		xmlns='http://www.w3.org/2000/svg'
 		viewBox='0 0 24 24'
 		width='24'
 		height='24'
 		role='img'
-		aria-hidden='false'>
+		aria-hidden='false'
+		xmlns='http://www.w3.org/2000/svg'
+		{...props}>
 		<title>Vertical split</title>
 		<rect
 			x='2'
