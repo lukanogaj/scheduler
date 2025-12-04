@@ -1,4 +1,4 @@
-.tasks {
+.notes {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -7,7 +7,7 @@
 	padding: 1em;
 	font-family: "Lato", sans-serif;
 
-	.tasksHead {
+	.notesHead {
 		display: flex;
 		align-items: center;
 		width: 40%;
@@ -19,7 +19,7 @@
 		}
 	}
 
-	.tasksCount {
+	.notesCount {
 		color: #fff;
 		font-size: 1.5em;
 	}

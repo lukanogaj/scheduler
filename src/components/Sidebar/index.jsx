@@ -4,6 +4,7 @@ import AddNewTodoElement from "../AddNewToDoElement";
 import SearchControl from "../Controls/InputSearch";
 import MyDay from "../MyDay";
 import Workspace from "../Workspace";
+import Projects from "../Projects";
 
 const Sidebar = () => {
 	return (
@@ -13,6 +14,7 @@ const Sidebar = () => {
 			<SearchControl />
 			<MyDay />
 			<Workspace />
+			<Projects />
 		</div>
 	);
 };
