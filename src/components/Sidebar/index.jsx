@@ -5,6 +5,7 @@ import SearchControl from "../Controls/InputSearch";
 import MyDay from "../MyDay";
 import Workspace from "../Workspace";
 import Projects from "../Projects";
+import NewList from "../NewList";
 
 const Sidebar = () => {
 	return (
@@ -15,6 +16,7 @@ const Sidebar = () => {
 			<MyDay />
 			<Workspace />
 			<Projects />
+			<NewList />
 		</div>
 	);
 };

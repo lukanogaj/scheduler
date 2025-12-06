@@ -5,7 +5,7 @@ import ProjectsNewDesign from "../ProjectsNewDesign";
 const Projects = () => {
 	return (
 		<div className={styles.projects}>
-			<h3>Projects</h3>
+			<h2>Projects</h2>
 			<ProjectsTechUpgrade />
 			<ProjectsNewDesign />
 		</div>

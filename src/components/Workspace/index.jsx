@@ -6,6 +6,7 @@ import Notes from "../Notes";
 const Workspace = () => {
 	return (
 		<div className={styles.workSpace}>
+			<h2>Workspace</h2>
 			<AllTasksNotes />
 			<Tasks />
 			<Notes />
