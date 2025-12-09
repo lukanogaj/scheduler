@@ -2,7 +2,7 @@ import styles from "./index.module.scss";
 import { LuSlidersVertical } from "react-icons/lu";
 import { PiLightbulbFilament } from "react-icons/pi";
 
-// import DateTimeClock from "../DateTimeClock";
+import DateTimeClock from "../DateTimeClock";
 
 const Navbar = () => {
 	const icon = {
@@ -16,12 +16,13 @@ const Navbar = () => {
 			</div>
 			<div className={styles.timeWrapper}>
 				<div className={styles.dateTime}>
-					<div className={styles.date}>
+					<DateTimeClock />
+					{/* <div className={styles.date}>
 						<h2 className={styles.headDate}>Tue 09,December</h2>
 					</div>
 					<div className={styles.time}>
 						<h2 className={styles.headTime}>15:40 pm</h2>
-					</div>
+					</div> */}
 				</div>
 				<div className={styles.navbarIcons}>
 					<div className={styles.toggle}>

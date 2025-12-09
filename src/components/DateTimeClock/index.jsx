@@ -15,6 +15,7 @@ const DateTimeClock = () => {
 						<p>
 							{" "}
 							{date.toLocaleDateString("en-GB", {
+								weekday: "short",
 								day: "numeric",
 								month: "short",
 								year: "numeric",
@@ -25,11 +26,13 @@ const DateTimeClock = () => {
 				<div className={styles.time}>
 					<div className={styles.headTime}>
 						<p>
-							{date.toLocaleString("en-US", {
-								hour: "numeric",
-								minute: "numeric",
-								hour12: true,
-							})}
+							{date
+								.toLocaleString("en-US", {
+									hour: "numeric",
+									minute: "numeric",
+									hour12: true,
+								})
+								.toLocaleLowerCase()}
 						</p>
 					</div>
 				</div>
