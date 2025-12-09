@@ -4,7 +4,7 @@ import { RiMenuAddLine } from "react-icons/ri";
 
 const NewList = () => {
 	const icon = {
-		color: "#a9acb0",
+		color: "#D3D5D9",
 		fontSize: "3em",
 	};
 	return (
