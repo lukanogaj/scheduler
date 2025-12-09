@@ -2,7 +2,7 @@ import styles from "./index.module.scss";
 import { BsSun } from "react-icons/bs";
 const MyDay = () => {
 	const iconPosition = {
-		color: "#A9ACB0",
+		color: "#9cbddb",
 		fontSize: "3em",
 	};
 	return (

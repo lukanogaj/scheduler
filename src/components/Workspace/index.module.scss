@@ -1,21 +1,17 @@
 .workSpace {
 	display: flex;
-	// justify-content: space-between;
 	flex-direction: column;
-	// align-items: center;
 	gap: 40px;
 	width: 100%;
-	background-color: yellow;
-	// background-color: #2f3137;
-	// height: %;
+	background-color: #2f3137;
 	font-family: "Lato", sans-serif;
-	border-top: 8px solid #a9acb0;
+	border-top: 4px solid #a9acb0;
 	border-right: none;
-	border-bottom: 8px solid #a9acb0;
+	border-bottom: 4px solid #a9acb0;
 	border-left: none;
 	h2 {
 		display: inline-block;
 		color: #a9acb0;
-		// margin: auto;
+		padding-top: 1rem;
 	}
 }
