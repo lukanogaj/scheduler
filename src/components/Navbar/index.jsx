@@ -2,6 +2,8 @@ import styles from "./index.module.scss";
 import { LuSlidersVertical } from "react-icons/lu";
 import { PiLightbulbFilament } from "react-icons/pi";
 
+// import DateTimeClock from "../DateTimeClock";
+
 const Navbar = () => {
 	const icon = {
 		color: "#b3b2b5",

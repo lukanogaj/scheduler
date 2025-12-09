@@ -1,0 +1,48 @@
+.dateTimeClock {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	color: 40%;
+	background-color: green;
+
+	.dateTime {
+		display: flex;
+		width: 70%;
+		height: 100%;
+		flex-direction: column;
+		background-color: pink;
+
+		.date {
+			display: flex;
+			flex-direction: column;
+			background-color: yellow;
+			.headDate {
+				display: flex;
+				justify-content: right;
+				font-size: 5rem;
+				color: #ffffff;
+			}
+		}
+		.time {
+			display: flex;
+			justify-content: right;
+			width: 100%;
+			height: 60px;
+			background-color: aqua;
+			.headTime {
+				display: flex;
+				justify-content: right;
+				color: #fff;
+				& > p {
+					width: 100%;
+					height: 100%;
+					text-align: right;
+					font-size: 3em;
+					color: #ffff;
+				}
+			}
+		}
+	}
+}
