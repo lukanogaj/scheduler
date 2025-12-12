@@ -43,8 +43,9 @@ const Overdue = () => {
 				<div className={styles.overdueBackLog}>
 					<div className={styles.dayCategory}>
 						<div className={styles.day}>Yesterday</div>
+						<div className={styles.dayCat}>Tasks</div>
 						<div className={styles.category}>
-							<LuDot style={icon} />
+							<LuDot style={{ color: "#646667" }} />
 						</div>
 					</div>
 					<div className={styles.starCalendar}>

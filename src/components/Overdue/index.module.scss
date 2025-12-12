@@ -4,7 +4,7 @@
 	justify-content: space-between;
 	width: 100%;
 	padding-top: 6rem;
-	background-color: red;
+	font-family: "Lato", sans-serif;
 	.toggleOverdue {
 		display: flex;
 		align-items: center;
@@ -24,11 +24,14 @@
 	.overdueCard {
 		display: flex;
 		flex-direction: column;
+		padding: 3rem;
+		border-radius: 2rem;
+		background-color: #2f3137;
 		.headOverdue {
 			display: flex;
 			justify-content: space-between;
 			width: 100%;
-			background-color: blue;
+			// background-color: blue;
 			padding: 2rem;
 			.inputRadio {
 				display: flex;
@@ -36,8 +39,7 @@
 				gap: 80px;
 				width: 20%;
 				color: #ffff;
-				// background-color: yellow;
-				// border-radius: 6px;
+
 				font-size: 2rem;
 				.checkTask {
 					width: 15%;
@@ -49,7 +51,38 @@
 			}
 		}
 	}
+
+	.overdueBackLog {
+		display: flex;
+		justify-content: space-between;
+		// width: 40%;
+		.dayCategory {
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+			width: 20%;
+			padding: 0 4rem 0 4rem;
+			.day {
+				font-size: 1.5rem;
+				color: #b74b57;
+				font-weight: 400;
+			}
+			.dayCat {
+				font-size: 1.5rem;
+				color: #646667;
+			}
+		}
+	}
+	.starCalendar {
+		display: flex;
+		justify-content: space-between;
+		width: 10%;
+		padding-right: 2rem;
+		gap: 20px;
+	}
 }
 
 // background-color: #2f3137;
 // s
+
+// 646667
