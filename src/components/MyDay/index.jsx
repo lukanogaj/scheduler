@@ -1,14 +1,13 @@
 import styles from "./index.module.scss";
-import { BsSun } from "react-icons/bs";
+import { Sun } from "../images/icons";
 const MyDay = () => {
 	const iconPosition = {
 		color: "#9cbddb",
-		fontSize: "3em",
 	};
 	return (
 		<div className={styles.myDay}>
 			<div className={styles.myDayHead}>
-				<BsSun style={iconPosition} />
+				<Sun style={iconPosition} />
 				<h1>My Day</h1>
 			</div>
 

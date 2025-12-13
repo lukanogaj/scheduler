@@ -1,14 +1,14 @@
 import styles from "./index.module.scss";
-import { TfiLayoutGrid2 } from "react-icons/tfi";
+import { Grid } from "../images/icons";
+
 const AllTasksNotes = () => {
 	const icon = {
 		color: "#DBDDE1",
-		fontSize: "3em",
 	};
 	return (
 		<div className={styles.allTaskNotes}>
 			<div className={styles.allTaskNotesHead}>
-				<TfiLayoutGrid2 style={icon} />
+				<Grid style={icon} />
 				<h1>All</h1>
 			</div>
 

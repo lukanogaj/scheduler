@@ -1,13 +1,13 @@
 import styles from "./index.module.scss";
-import { IoSearchOutline } from "react-icons/io5";
+import { Search } from "../../images/icons";
 
 const SearchControl = () => {
 	const iconPosition = {
 		color: "#A9ACB0",
 		position: "absolute",
-		top: "24%",
+		top: "25%",
 		right: "2%",
-		fontSize: "3em",
+		fontSize: "10rem",
 	};
 	return (
 		<div className={styles.search}>
@@ -16,7 +16,7 @@ const SearchControl = () => {
 				placeholder='Search'
 				name='search'
 			/>
-			<IoSearchOutline style={iconPosition} />
+			<Search style={iconPosition} />
 		</div>
 	);
 };

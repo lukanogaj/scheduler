@@ -1,5 +1,5 @@
 import styles from "./index.module.scss";
-import { GrNotes } from "react-icons/gr";
+import { NotesIcon } from "../images/icons";
 const Notes = () => {
 	const icon = {
 		color: "#DBDDE1",
@@ -8,7 +8,7 @@ const Notes = () => {
 	return (
 		<div className={styles.notes}>
 			<div className={styles.notesHead}>
-				<GrNotes style={icon} />
+				<Notes style={icon} />
 				<h1>Notes</h1>
 			</div>
 
