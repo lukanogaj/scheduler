@@ -5,8 +5,10 @@
 	justify-content: space-between;
 	margin-top: 5rem;
 	padding: 1em;
+	// background-color: red;
 	.leftNewList {
 		display: flex;
+		align-items: center;
 		width: 40%;
 		h1 {
 			display: inline-block;

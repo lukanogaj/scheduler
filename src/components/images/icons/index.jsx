@@ -112,7 +112,7 @@ export const Menu = (props) => (
 		viewBox='0 0 24 24'
 		fill='none'
 		stroke='currentColor'
-		stroke-width={3}>
+		strokeWidth={3}>
 		<path d='M3 5h1' />
 		<path d='M3 12h1' />
 		<path d='M3 19h1' />
@@ -134,10 +134,7 @@ export const NotesIcon = (props) => (
 		viewBox='0 0 24 24'
 		fill='none'
 		stroke='currentColor'
-		stroke-width={2}
-		stroke-linecap='round'
-		stroke-linejoin='round'
-		class='lucide lucide-notepad-text-icon lucide-notepad-text'>
+		strokeWidth={2}>
 		<path d='M8 2v4' />
 		<path d='M12 2v4' />
 		<path d='M16 2v4' />
@@ -153,6 +150,71 @@ export const NotesIcon = (props) => (
 		<path d='M8 18h5' />
 	</svg>
 );
+export const Hash = (props) => (
+	<svg
+		{...props}
+		xmlns='http://www.w3.org/2000/svg'
+		width='48'
+		height='48'
+		viewBox='0 0 24 24'
+		fill='none'
+		stroke='currentColor'
+		strokeWidth={2}>
+		<line
+			x1='4'
+			x2='20'
+			y1='9'
+			y2='9'
+		/>
+		<line
+			x1='4'
+			x2='20'
+			y1='15'
+			y2='15'
+		/>
+		<line
+			x1='10'
+			x2='8'
+			y1='3'
+			y2='21'
+		/>
+		<line
+			x1='16'
+			x2='14'
+			y1='3'
+			y2='21'
+		/>
+	</svg>
+);
+export const Plus = (props) => (
+	<svg
+		{...props}
+		xmlns='http://www.w3.org/2000/svg'
+		width='64'
+		height='64'
+		viewBox='0 0 24 24'
+		fill='none'
+		stroke='currentColor'
+		strokeWidth={1}>
+		<path d='M5 12h14' />
+		<path d='M12 5v14' />
+	</svg>
+);
+export const MenuFilter = (props) => (
+	<svg
+		xmlns='http://www.w3.org/2000/svg'
+		width='44'
+		height='44'
+		viewBox='0 0 24 24'
+		fill='none'
+		stroke='#DBDDE1'
+		strokeWidth={2}>
+		<path d='M3 5h18' />
+		<path d='M3 12h18' />
+		<path d='M3 19h18' />
+	</svg>
+);
+
 export const SplitScreen = (props) => (
 	<svg
 		viewBox='0 0 24 24'
@@ -233,8 +295,7 @@ export const DeleteIcon = (props) => (
 	stroke='currentColor'
 	stroke-width='2'
 	stroke-linecap='round'
-	stroke-linejoin='round'
-	class='lucide lucide-search-icon lucide-search'>
+	stroke-linejoin='round'>
 	<path d='m21 21-4.34-4.34' />
 	<circle
 		cx='11'

@@ -8,7 +8,7 @@ const Notes = () => {
 	return (
 		<div className={styles.notes}>
 			<div className={styles.notesHead}>
-				<Notes style={icon} />
+				<NotesIcon style={icon} />
 				<h1>Notes</h1>
 			</div>
 
