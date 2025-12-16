@@ -2,10 +2,10 @@ import { useState } from "react";
 import styles from "./index.module.scss";
 import { ChevronDown } from "../images/icons";
 import { ChevronUp } from "../images/icons";
-import { HiOutlineDotsHorizontal } from "react-icons/hi";
-import { CiStar } from "react-icons/ci";
-import { CiCalendar } from "react-icons/ci";
-import { LuDot } from "react-icons/lu";
+import { Dots } from "../images/icons";
+import { Dot } from "../images/icons";
+import { Star } from "../images/icons";
+import { Calendar } from "../images/icons";
 const Overdue = () => {
 	const icon = {
 		color: "#ffffff",
@@ -35,21 +35,21 @@ const Overdue = () => {
 							name='option'
 							id='yes'
 						/>
-						<label for='yes'>Code</label>
+						<label htmlFor='yes'>Code</label>
 					</div>
-					<HiOutlineDotsHorizontal style={icon} />
+					<Dots style={icon} />
 				</div>
 				<div className={styles.overdueBackLog}>
 					<div className={styles.dayCategory}>
 						<div className={styles.day}>Yesterday</div>
-						<div className={styles.dayCat}>Tasks</div>
 						<div className={styles.category}>
-							<LuDot style={{ color: "#646667" }} />
+							<Dot style={{ color: "#646667" }} />
 						</div>
+						<div className={styles.dayCat}>Tasks</div>
 					</div>
 					<div className={styles.starCalendar}>
-						<CiStar style={icon} />
-						<CiCalendar style={icon} />
+						<Star style={icon} />
+						<Calendar style={icon} />
 					</div>
 				</div>
 			</div>
