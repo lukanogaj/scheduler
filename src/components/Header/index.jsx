@@ -5,14 +5,14 @@ import { ChevronDown } from "../images/icons";
 import { ChevronUp } from "../images/icons";
 import { BsLayoutSplit } from "react-icons/bs";
 const Header = () => {
-	const [dropDown, setDropDown] = useState(true);
+	const [chevron, setChevron] = useState(true);
 	const icon = {
 		color: "#DBDDE1",
 		fontSize: "3em",
 	};
 
 	const dropdownHandler = () => {
-		setDropDown(!dropDown);
+		setChevron(!chevron);
 		console.log("Clicked");
 	};
 	return (
@@ -28,7 +28,7 @@ const Header = () => {
 				<div
 					className={styles.dropDownHandler}
 					onClick={dropdownHandler}>
-					{dropDown ? <ChevronDown /> : <ChevronUp />}
+					{chevron ? <ChevronDown /> : <ChevronUp />}
 				</div>
 			</div>
 			<div className={styles.split}>
