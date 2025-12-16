@@ -2,7 +2,7 @@ import styles from "./index.module.scss";
 import { ChevronUp } from "../images/icons";
 import { ChevronDown } from "../images/icons";
 
-const Chevron = ({ dropDownHandler, chevron }) => {
+const Chevron = ({ chevronHandler, chevron }) => {
 	const icon = {
 		color: "#DBDDE1",
 		fontSize: "3em",
@@ -10,7 +10,7 @@ const Chevron = ({ dropDownHandler, chevron }) => {
 	return (
 		<div
 			className={styles.dropDownHandler}
-			onClick={dropDownHandler}>
+			onClick={chevronHandler}>
 			{chevron ? <ChevronDown style={icon} /> : <ChevronUp style={icon} />}
 		</div>
 	);

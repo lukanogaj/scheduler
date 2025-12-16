@@ -316,7 +316,7 @@ export const Calendar = (props) => (
 		viewBox='0 0 24 24'
 		fill='none'
 		stroke='currentColor'
-		stroke-width={2}>
+		strokeWidth={2}>
 		<path d='M11 14h1v4' />
 		<path d='M16 2v4' />
 		<path d='M3 10h18' />

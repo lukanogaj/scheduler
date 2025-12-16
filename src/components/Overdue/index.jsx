@@ -1,29 +1,23 @@
-import { useState } from "react";
 import styles from "./index.module.scss";
-import { ChevronDown } from "../images/icons";
-import { ChevronUp } from "../images/icons";
+import Chevron from "../Chevron";
 import { Dots } from "../images/icons";
 import { Dot } from "../images/icons";
 import { Star } from "../images/icons";
 import { Calendar } from "../images/icons";
-const Overdue = () => {
+const Overdue = ({ chevron, chevronHandler }) => {
 	const icon = {
 		color: "#ffffff",
 		fontSize: "4em",
-	};
-	const [overdue, setOverdue] = useState(true);
-
-	const handleOverdue = () => {
-		setOverdue(!overdue);
 	};
 
 	return (
 		<div className={styles.overdue}>
 			<div className={styles.toggleOverdue}>
 				<h1>Overdue</h1>
-				<div onClick={handleOverdue}>
-					{overdue ? <ChevronUp style={icon} /> : <ChevronDown style={icon} />}
-				</div>
+				<Chevron
+					chevron={chevron}
+					chevronHandler={chevronHandler}
+				/>
 			</div>
 
 			<div className={styles.overdueCard}>
