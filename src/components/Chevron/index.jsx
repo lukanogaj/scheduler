@@ -1,8 +1,14 @@
 import styles from "./index.module.scss";
+import { useState } from "react";
 import { ChevronUp } from "../images/icons";
 import { ChevronDown } from "../images/icons";
 
-const Chevron = ({ chevronHandler, chevron }) => {
+const Chevron = () => {
+	const [chevron, setChevron] = useState();
+	const chevronHandler = () => {
+		setChevron(!chevron);
+		console.log("Clicked");
+	};
 	const icon = {
 		color: "#DBDDE1",
 		fontSize: "3em",
