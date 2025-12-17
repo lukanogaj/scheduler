@@ -2,10 +2,30 @@ import { useState } from "react";
 import styles from "./index.module.scss";
 import AddTaskControl from "../Controls/AddTaskControl";
 
-const AddNewTodoElement = ({ handleAddTodoCopy, time, setTime }) => {
+const AddNewTodoElement = () => {
 	const [title, setTitle] = useState("");
 	const [isFormVisible, setIsFormVisible] = useState(false);
 	const [date, setDate] = useState("");
+	const [time, setTime] = useState("");
+	const [upcomingTodos, setUpcomingTodos] = useState([]);
+
+	function handleAddTodo(e) {
+		e.preventDefault();
+		if (!title || !date || !time) return;
+
+		setUpcomingTodos([
+			...upcomingTodos,
+			{
+				id: Date.now(),
+				title,
+				date,
+				time,
+			},
+		]);
+		setTitle("");
+		setDate("");
+		setTime("");
+	}
 
 	const clearLocale = () => localStorage.clear();
 
@@ -13,7 +33,6 @@ const AddNewTodoElement = ({ handleAddTodoCopy, time, setTime }) => {
 		<>
 			<div onClick={() => setIsFormVisible(!isFormVisible)}>
 				<AddTaskControl />
-				{/* {isFormVisible ? <HideForm /> : <AddNewTaskControl />} */}
 			</div>
 			<div className={styles.todoInput}>
 				{isFormVisible && (
@@ -41,7 +60,7 @@ const AddNewTodoElement = ({ handleAddTodoCopy, time, setTime }) => {
 						/>
 						<button
 							onClick={() => {
-								handleAddTodoCopy(title);
+								handleAddTodo(title);
 								setTitle("");
 							}}>
 							Submit
