@@ -25,8 +25,9 @@ const TodoTodayContainer = ({ chevronHandler, chevron }) => {
 
 	// Function to add todo into database
 	const addTodo = async () => {
-		if (!title.trim() || !date.trim() || time.trim()) return;
-		const { error } = await supabase.from("todos").insert([{ title }]);
+		if (!title.trim() || !date || !time) return;
+		const due_at = `${date}T${time}:00`;
+		const { error } = await supabase.from("todos").insert([{ title, due_at }]);
 		if (error) console.error(error);
 		else {
 			setTitle("");
