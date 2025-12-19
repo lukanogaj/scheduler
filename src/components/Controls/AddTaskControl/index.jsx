@@ -1,14 +1,11 @@
 import styles from "./index.module.scss";
-import { FaPlus } from "react-icons/fa6";
+import { Plus } from "../../images/icons";
+import { useState } from "react";
 
 const AddTaskControl = () => {
-	const icon = {
-		color: "#9CBDDB",
-		fontSize: "3em",
-	};
 	return (
 		<div className={styles.addTaskControl}>
-			<FaPlus style={icon} />
+			<Plus style={{ color: "#9Cbddb", width: 90, height: 90 }} />
 			<h1>Add Task</h1>
 		</div>
 	);

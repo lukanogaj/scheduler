@@ -2,13 +2,13 @@ import styles from "./index.module.scss";
 import { useState, useEffect } from "react";
 import supabase from "../../helper/supabaseClient";
 import Chevron from "../Chevron";
-
+import useTodos from "../../hooks";
 const TodoTodayContainer = ({ chevronHandler, chevron }) => {
 	const [todos, setTodos] = useState([]);
 	const [title, setTitle] = useState("");
 	const [date, setDate] = useState("");
-	const [time, setTime] = useState("");
 
+	// useTodos();
 	// Function to fetch the data from database
 	useEffect(() => {
 		fetchTodos();
@@ -77,20 +77,7 @@ const TodoTodayContainer = ({ chevronHandler, chevron }) => {
 					onChange={(e) => setDate(e.target.value)}
 					// style={;}
 				/>
-				{/* <input
-					type='date'
-					value={date}
-					onChange={(e) => setDate(e.target.value)}
-					style={{ marginRight: "0.5rem" }}
-					required
-				/>
-				<input
-					type='time'
-					value={time}
-					onChange={(e) => setTime(e.target.value)}
-					style={{ marginRight: "0.5rem" }}
-					required
-				/> */}
+
 				<button onClick={addTodo}>Add</button>
 				{/* Filter todos */}
 				<h2>Incomplete Todos</h2>
