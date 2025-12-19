@@ -25,14 +25,13 @@ const TodoTodayContainer = ({ chevronHandler, chevron }) => {
 
 	// Function to add todo into database
 	const addTodo = async () => {
-		if (!title.trim() || !date || !time) return;
-		const due_at = `${date}T${time}:00`;
+		if (!title.trim() || !date) return;
+		const due_at = new Date(`${date}`);
 		const { error } = await supabase.from("todos").insert([{ title, due_at }]);
 		if (error) console.error(error);
 		else {
 			setTitle("");
 			setDate("");
-			setTime("");
 			fetchTodos();
 		}
 	};
@@ -70,7 +69,15 @@ const TodoTodayContainer = ({ chevronHandler, chevron }) => {
 					onChange={(e) => setTitle(e.target.value)}
 					placeholder='Add New Todo'
 				/>
+
 				<input
+					type='datetime-local'
+					name='datetime-local'
+					value={date}
+					onChange={(e) => setDate(e.target.value)}
+					// style={;}
+				/>
+				{/* <input
 					type='date'
 					value={date}
 					onChange={(e) => setDate(e.target.value)}
@@ -83,7 +90,7 @@ const TodoTodayContainer = ({ chevronHandler, chevron }) => {
 					onChange={(e) => setTime(e.target.value)}
 					style={{ marginRight: "0.5rem" }}
 					required
-				/>
+				/> */}
 				<button onClick={addTodo}>Add</button>
 				{/* Filter todos */}
 				<h2>Incomplete Todos</h2>
