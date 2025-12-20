@@ -2,7 +2,7 @@ import styles from "./index.module.scss";
 import { useState, useEffect } from "react";
 import supabase from "../../helper/supabaseClient";
 import Chevron from "../Chevron";
-import useTodos from "../../hooks";
+// import useTodos from "../../hooks";
 const TodoTodayContainer = ({ chevronHandler, chevron }) => {
 	const [todos, setTodos] = useState([]);
 	const [title, setTitle] = useState("");

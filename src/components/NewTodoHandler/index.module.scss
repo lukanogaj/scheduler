@@ -1,0 +1,41 @@
+.newTodo {
+	display: flex; /* Hidden by default */
+
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+
+	.newTodoForm {
+		display: flex;
+		justify-content: space-around;
+		width: 100%;
+		height: 50px;
+		border-radius: 10px;
+		align-items: center;
+
+		.addTask {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 130px;
+			height: 100%;
+			background-color: #cbc6e3;
+			border-radius: 0px 8px 8px 0px;
+		}
+
+		input {
+			height: 50px;
+			width: 100%;
+			opacity: 0.5;
+			background-color: #8fd9ee;
+			border-radius: 8px 0px 0px 8px;
+			border: transparentize($color: #000000, $amount: 0);
+		}
+	}
+	input::placeholder {
+		opacity: 0.8;
+		padding-left: 2rem;
+		color: #000000;
+		font-size: 15px;
+	}
+}
