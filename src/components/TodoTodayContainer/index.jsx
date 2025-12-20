@@ -9,7 +9,7 @@ const TodoTodayContainer = ({ chevronHandler, chevron }) => {
 	const [date, setDate] = useState("");
 
 	// useTodos();
-	// Function to fetch the data from database
+	//Function to fetch the data from database
 	useEffect(() => {
 		fetchTodos();
 	}, []);
@@ -69,7 +69,7 @@ const TodoTodayContainer = ({ chevronHandler, chevron }) => {
 					onChange={(e) => setTitle(e.target.value)}
 					placeholder='Add New Todo'
 				/>
-
+				<textarea></textarea>
 				<input
 					type='datetime-local'
 					name='datetime-local'
