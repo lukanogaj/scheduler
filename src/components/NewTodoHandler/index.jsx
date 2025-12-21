@@ -1,6 +1,7 @@
 import styles from "./index.module.scss";
 import { useState, useEffect } from "react";
 import supabase from "../../helper/supabaseClient";
+import { Plus } from "../images/icons";
 import useTodos from "../../hooks";
 
 const NewTodoHandler = () => {
@@ -43,7 +44,7 @@ const NewTodoHandler = () => {
 				/>
 				<textarea
 					id='todoDescription'
-					rows='10'
+					rows='8'
 					// cols='1000'
 					placeholder='Description'></textarea>
 				<input
@@ -54,7 +55,14 @@ const NewTodoHandler = () => {
 					// style={;}
 				/>
 
-				<button onClick={addTodo}>Add</button>
+				<button
+					className={styles.btnAddTask}
+					onClick={addTodo}>
+					<span>
+						<Plus />
+					</span>
+					<span>Add Todo</span>
+				</button>
 			</div>
 		</div>
 	);
