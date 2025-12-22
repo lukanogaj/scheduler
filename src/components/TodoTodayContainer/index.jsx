@@ -6,6 +6,7 @@ import Chevron from "../Chevron";
 const TodoTodayContainer = ({ chevronHandler, chevron }) => {
 	const [todos, setTodos] = useState([]);
 	const [title, setTitle] = useState("");
+	const [description, setDescription] = useState("");
 	const [date, setDate] = useState("");
 
 	// useTodos();
@@ -27,11 +28,14 @@ const TodoTodayContainer = ({ chevronHandler, chevron }) => {
 	const addTodo = async () => {
 		if (!title.trim() || !date) return;
 		const due_at = new Date(`${date}`);
-		const { error } = await supabase.from("todos").insert([{ title, due_at }]);
+		const { error } = await supabase
+			.from("todos")
+			.insert([{ title, due_at, description }]);
 		if (error) console.error(error);
 		else {
 			setTitle("");
 			setDate("");
+			setDescription("");
 			fetchTodos();
 		}
 	};
@@ -69,7 +73,9 @@ const TodoTodayContainer = ({ chevronHandler, chevron }) => {
 					onChange={(e) => setTitle(e.target.value)}
 					placeholder='Add New Todo'
 				/>
-				<textarea></textarea>
+				<textarea
+					value={description}
+					onChange={(e) => setDescription(e.target.value)}></textarea>
 				<input
 					type='datetime-local'
 					name='datetime-local'

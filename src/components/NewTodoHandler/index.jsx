@@ -7,6 +7,7 @@ import useTodos from "../../hooks";
 const NewTodoHandler = () => {
 	const [title, setTitle] = useState("");
 	const [date, setDate] = useState("");
+	const [description, setDescription] = useState("");
 	const [todos, setTodos] = useState([]);
 
 	useEffect(() => {
@@ -25,11 +26,14 @@ const NewTodoHandler = () => {
 	const addTodo = async () => {
 		if (!title.trim() || !date) return;
 		const due_at = new Date(`${date}`);
-		const { error } = await supabase.from("todos").insert([{ title, due_at }]);
+		const { error } = await supabase
+			.from("todos")
+			.insert([{ title, due_at, description }]);
 		if (error) console.error(error);
 		else {
 			setTitle("");
 			setDate("");
+			setDescription("");
 			// fetchTodos();
 		}
 	};
@@ -46,6 +50,7 @@ const NewTodoHandler = () => {
 					id='todoDescription'
 					rows='8'
 					// cols='1000'
+					onChange={(e) => setDescription(e.target.value)}
 					placeholder='Description'></textarea>
 				<input
 					type='datetime-local'
