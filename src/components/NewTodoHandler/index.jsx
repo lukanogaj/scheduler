@@ -3,12 +3,14 @@ import { useState, useEffect } from "react";
 import supabase from "../../helper/supabaseClient";
 import { Plus } from "../images/icons";
 import useTodos from "../../hooks";
+import { faL } from "@fortawesome/free-solid-svg-icons";
 
 const NewTodoHandler = () => {
 	const [title, setTitle] = useState("");
 	const [date, setDate] = useState("");
 	const [description, setDescription] = useState("");
 	const [todos, setTodos] = useState([]);
+	const [isSubmitted, setIsSubmitted] = useState(false);
 
 	useEffect(() => {
 		fetchTodos();
@@ -31,45 +33,56 @@ const NewTodoHandler = () => {
 			.insert([{ title, due_at, description }]);
 		if (error) console.error(error);
 		else {
+			setIsSubmitted(true);
 			setTitle("");
 			setDate("");
 			setDescription("");
 			// fetchTodos();
 		}
+		// ✅ Delay hiding the form by 300ms
+		setTimeout(() => {
+			setIsSubmitted(true);
+		}, 300);
 	};
 	return (
-		<div className={styles.newTodo}>
-			<div className={styles.newTodoForm}>
-				<h1>Todo-List</h1>
-				<input
-					value={title}
-					onChange={(e) => setTitle(e.target.value)}
-					placeholder='Add New Todo'
-				/>
-				<textarea
-					id='todoDescription'
-					rows='8'
-					// cols='1000'
-					onChange={(e) => setDescription(e.target.value)}
-					placeholder='Description'></textarea>
-				<input
-					type='datetime-local'
-					name='datetime-local'
-					value={date}
-					onChange={(e) => setDate(e.target.value)}
-					// style={;}
-				/>
+		<>
+			{!isSubmitted ? (
+				<div className={styles.newTodo}>
+					<div className={styles.newTodoForm}>
+						<h1>Todo-List</h1>
+						<input
+							value={title}
+							onChange={(e) => setTitle(e.target.value)}
+							placeholder='Add New Todo'
+						/>
+						<textarea
+							id='todoDescription'
+							rows='8'
+							// cols='1000'
+							onChange={(e) => setDescription(e.target.value)}
+							placeholder='Description'></textarea>
+						<input
+							type='datetime-local'
+							name='datetime-local'
+							value={date}
+							onChange={(e) => setDate(e.target.value)}
+							// style={;}
+						/>
 
-				<button
-					className={styles.btnAddTask}
-					onClick={addTodo}>
-					<span>
-						<Plus />
-					</span>
-					<span>Add Todo</span>
-				</button>
-			</div>
-		</div>
+						<button
+							className={styles.btnAddTask}
+							onClick={addTodo}>
+							<span>
+								<Plus />
+							</span>
+							<span>Add Todo</span>
+						</button>
+					</div>
+				</div>
+			) : (
+				<div className={styles.success}> Todo added successfully !!!</div>
+			)}
+		</>
 	);
 };
 
