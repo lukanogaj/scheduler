@@ -12,7 +12,7 @@ const AddTaskControl = () => {
 				onClick={() => setIsOpen(true)}
 			/>
 			<h1>Add Task</h1>
-			{isOpen ? <NewTodoHandler /> : null}
+			{isOpen && <NewTodoHandler onClose={() => setIsOpen(false)} />}
 		</div>
 	);
 };

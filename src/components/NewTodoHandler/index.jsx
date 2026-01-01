@@ -2,15 +2,17 @@ import styles from "./index.module.scss";
 import { useState, useEffect } from "react";
 import supabase from "../../helper/supabaseClient";
 import { Plus } from "../images/icons";
-import useTodos from "../../hooks";
-import { faL } from "@fortawesome/free-solid-svg-icons";
+import { faLastfm } from "@fortawesome/free-brands-svg-icons";
+// import useTodos from "../../hooks";
 
-const NewTodoHandler = () => {
+const NewTodoHandler = ({ onClose }) => {
 	const [title, setTitle] = useState("");
 	const [date, setDate] = useState("");
 	const [description, setDescription] = useState("");
 	const [todos, setTodos] = useState([]);
-	const [isSubmitted, setIsSubmitted] = useState(false);
+	// const [isSubmitted, setIsSubmitted] = useState(false);
+	const [showSuccess, setShowSuccess] = useState(false);
+	const [formVisible, setFormVisible] = useState(true);
 
 	useEffect(() => {
 		fetchTodos();
@@ -33,56 +35,71 @@ const NewTodoHandler = () => {
 			.insert([{ title, due_at, description }]);
 		if (error) console.error(error);
 		else {
-			setIsSubmitted(true);
+			// Reset date from the fields
 			setTitle("");
 			setDate("");
 			setDescription("");
-			// fetchTodos();
+			// Refresh todos
+			fetchTodos();
+			// Hide form immediately
+			setFormVisible(false);
+			// Show success message
+			setShowSuccess(true);
 		}
-		// ✅ Delay hiding the form by 300ms
-		setTimeout(() => {
-			setIsSubmitted(true);
-		}, 300);
 	};
+
+	// Auto-hide success message AND close form after 2s
+	useEffect(() => {
+		if (!showSuccess) return;
+
+		const timer = setTimeout(() => {
+			setShowSuccess(false); // hide success message
+			if (onClose) onClose(); // hide form
+		}, 2000);
+
+		return () => clearTimeout(timer);
+	}, [showSuccess, onClose]);
+
 	return (
-		<>
-			{!isSubmitted ? (
+		<div>
+			{/* Form container */}
+			{formVisible && (
 				<div className={styles.newTodo}>
 					<div className={styles.newTodoForm}>
 						<h1>Todo-List</h1>
+
 						<input
 							value={title}
 							onChange={(e) => setTitle(e.target.value)}
 							placeholder='Add New Todo'
 						/>
 						<textarea
-							id='todoDescription'
-							rows='8'
-							// cols='1000'
+							rows='4'
+							value={description}
 							onChange={(e) => setDescription(e.target.value)}
-							placeholder='Description'></textarea>
+							placeholder='Description'
+						/>
 						<input
 							type='datetime-local'
-							name='datetime-local'
 							value={date}
 							onChange={(e) => setDate(e.target.value)}
-							// style={;}
 						/>
 
 						<button
 							className={styles.btnAddTask}
 							onClick={addTodo}>
-							<span>
-								<Plus />
-							</span>
+							<Plus />
 							<span>Add Todo</span>
 						</button>
 					</div>
 				</div>
-			) : (
-				<div className={styles.success}> Todo added successfully !!!</div>
 			)}
-		</>
+
+			{/* Success message outside form */}
+			{showSuccess && (
+				<div className={styles.success}>Todo added successfully!</div>
+			)}
+		</div>
 	);
 };
 
