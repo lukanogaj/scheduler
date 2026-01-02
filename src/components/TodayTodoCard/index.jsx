@@ -3,7 +3,7 @@ import Chevron from "../Chevron";
 import { Dots } from "../images/icons";
 import { Dot } from "../images/icons";
 import { Star } from "../images/icons";
-import { Calendar } from "../images/icons";
+import { Watch } from "../images/icons";
 const TodayTodoCard = ({ chevron, chevronHandler }) => {
 	const icon = {
 		color: "#ffffff",
@@ -11,7 +11,7 @@ const TodayTodoCard = ({ chevron, chevronHandler }) => {
 	};
 	return (
 		<div className={styles.todayTodoCard}>
-			<div className={styles.toggleOverdue}>
+			<div className={styles.toggleTodayCard}>
 				<h1>Today</h1>
 				<Chevron
 					chevron={chevron}
@@ -19,8 +19,8 @@ const TodayTodoCard = ({ chevron, chevronHandler }) => {
 				/>
 			</div>
 
-			<div className={styles.overdueCard}>
-				<div className={styles.headOverdue}>
+			<div className={styles.todayCard}>
+				<div className={styles.headerToday}>
 					<div className={styles.inputRadio}>
 						<input
 							type='radio'
@@ -30,7 +30,13 @@ const TodayTodoCard = ({ chevron, chevronHandler }) => {
 						/>
 						<label htmlFor='yes'>Code</label>
 					</div>
-					<Dots style={icon} />
+					<div st>
+						<Dots style={icon} />
+						<Chevron
+							chevron={chevron}
+							chevronHandler={chevronHandler}
+						/>
+					</div>
 				</div>
 				<div className={styles.overdueBackLog}>
 					<div className={styles.dayCategory}>
@@ -42,7 +48,7 @@ const TodayTodoCard = ({ chevron, chevronHandler }) => {
 					</div>
 					<div className={styles.starCalendar}>
 						<Star style={icon} />
-						<Calendar style={icon} />
+						<Watch style={icon} />
 					</div>
 				</div>
 			</div>
