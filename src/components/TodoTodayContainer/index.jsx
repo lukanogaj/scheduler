@@ -24,22 +24,6 @@ const TodoTodayContainer = ({ chevronHandler, chevron }) => {
 		else setTodos(data);
 	};
 
-	// Function to add todo into database
-	// const addTodo = async () => {
-	// 	if (!title.trim() || !date) return;
-	// 	const due_at = new Date(`${date}`);
-	// 	const { error } = await supabase
-	// 		.from("todos")
-	// 		.insert([{ title, due_at, description }]);
-	// 	if (error) console.error(error);
-	// 	else {
-	// 		setTitle("");
-	// 		setDate("");
-	// 		setDescription("");
-	// 		fetchTodos();
-	// 	}
-	// };
-
 	// Function to delete todo
 	const deleteTodo = async (id) => {
 		await supabase.from("todos").delete().eq("id", id);

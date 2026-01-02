@@ -15,7 +15,7 @@ const Chevron = () => {
 	};
 	return (
 		<div
-			className={styles.dropDownHandler}
+			className={styles.chevron}
 			onClick={chevronHandler}>
 			{chevron ? <ChevronDown style={icon} /> : <ChevronUp style={icon} />}
 		</div>

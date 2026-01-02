@@ -1,9 +1,10 @@
 export const ChevronDown = (props) => (
 	<svg
-		width='13'
-		height='13'
+		width='64'
+		height='64'
 		viewBox='0 0 13 13'
 		fill='currentColor'
+		strokeWidth={4}
 		xmlns='http://www.w3.org/2000/svg'
 		{...props}>
 		<path d='M4.01375 4.49313L6.5 6.97397L8.98625 4.49313L9.75 5.25688L6.5 8.50688L3.25 5.25688L4.01375 4.49313Z' />
@@ -12,8 +13,8 @@ export const ChevronDown = (props) => (
 
 export const ChevronUp = (props) => (
 	<svg
-		width='13'
-		height='13'
+		width='64'
+		height='64'
 		viewBox='0 0 13 13'
 		fill='currentColor'
 		xmlns='http://www.w3.org/2000/svg'
@@ -385,23 +386,3 @@ export const Watch = (props) => (
 		/>
 	</svg>
 );
-
-// {
-/* <svg
-	xmlns='http://www.w3.org/2000/svg'
-	width='24'
-	height='24'
-	viewBox='0 0 24 24'
-	fill='none'
-	stroke='currentColor'
-	stroke-width='2'
-	stroke-linecap='round'
-	stroke-linejoin='round'>
-	<path d='m21 21-4.34-4.34' />
-	<circle
-		cx='11'
-		cy='11'
-		r='8'
-	/>
-</svg> */
-// }

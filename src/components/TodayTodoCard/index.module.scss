@@ -3,14 +3,14 @@
 	flex-direction: column;
 	justify-content: space-between;
 	width: 100%;
-	// padding-top: 4rem;
+	// padding: 2rem;
 	font-family: "Lato", sans-serif;
 	.toggleTodayCard {
 		display: flex;
 		// justify-content: space-between;
 		align-items: center;
 		width: 100%;
-		padding: 2rem 0 2rem 0;
+		padding: 3rem 0 3rem 0;
 
 		h1 {
 			display: inline-block;
@@ -21,11 +21,11 @@
 			padding-right: 2rem;
 			background-color: red;
 		}
-		svg {
-			width: 100%;
-			height: 6rem;
-			font-weight: 200;
-		}
+		// svg {
+		// 	width: 100%;
+		// 	height: 6rem;
+		// 	font-weight: 200;
+		// }
 	}
 
 	.todayCard {
@@ -42,6 +42,14 @@
 			width: 100%;
 			background-color: blue;
 			padding: 2rem;
+
+			.toggleChevron {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				background-color: red;
+				width: 10%;
+			}
 			.inputRadio {
 				display: flex;
 				align-items: center;

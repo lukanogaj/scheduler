@@ -30,12 +30,12 @@ const TodayTodoCard = ({ chevron, chevronHandler }) => {
 						/>
 						<label htmlFor='yes'>Code</label>
 					</div>
-					<div st>
-						<Dots style={icon} />
+					<div className={styles.toggleChevron}>
 						<Chevron
 							chevron={chevron}
 							chevronHandler={chevronHandler}
 						/>
+						<Dots style={icon} />
 					</div>
 				</div>
 				<div className={styles.overdueBackLog}>
