@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 import supabase from "../../helper/supabaseClient";
 import TodayTodoCard from "../TodayTodoCard";
 // import useTodos from "../../hooks";
-const TodoTodayContainer = ({ chevronHandler, chevron }) => {
+const TodoViewContainer = ({ chevronHandler, chevron }) => {
 	const [todos, setTodos] = useState([]);
-	const [title, setTitle] = useState("");
-	const [description, setDescription] = useState("");
-	const [date, setDate] = useState("");
+	// const [title, setTitle] = useState("");
+	// const [description, setDescription] = useState("");
+	// const [date, setDate] = useState("");
 
 	// useTodos();
 	//Function to fetch the data from database
@@ -44,7 +44,10 @@ const TodoTodayContainer = ({ chevronHandler, chevron }) => {
 	return (
 		<div className={styles.todoTodayContainer}>
 			<div className={styles.toggleToday}>
-				<TodayTodoCard />
+				<TodayTodoCard
+					todos={todos}
+					setTodos={setTodos}
+				/>
 				{/* Filter todos */}
 				<div className={styles.incompleteTodos}>
 					<h2>Incomplete Todos</h2>
@@ -84,4 +87,4 @@ const TodoTodayContainer = ({ chevronHandler, chevron }) => {
 	);
 };
 
-export default TodoTodayContainer;
+export default TodoViewContainer;
