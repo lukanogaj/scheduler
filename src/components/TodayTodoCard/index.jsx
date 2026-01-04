@@ -1,30 +1,16 @@
 import styles from "./index.module.scss";
-import supabase from "../../helper/supabaseClient";
-import { useEffect } from "react";
+
 import Chevron from "../Chevron";
 import { Dots } from "../images/icons";
 import { Dot } from "../images/icons";
 import { Star } from "../images/icons";
 import { Watch } from "../images/icons";
-const TodayTodoCard = ({ chevron, chevronHandler, todos, setTodos }) => {
+const TodayTodoCard = ({ chevron, chevronHandler }) => {
 	const icon = {
 		color: "#ffffff",
 		fontSize: "4em",
 	};
 
-	//
-	useEffect(() => {
-		fetchTodos();
-	}, []);
-
-	const fetchTodos = async () => {
-		const { data, error } = await supabase
-			.from("todos")
-			.select("*")
-			.order("created_at", { ascending: true });
-		if (error) console.error(error);
-		else setTodos(data);
-	};
 	return (
 		<div className={styles.todayTodoCard}>
 			<div className={styles.toggleTodayCard}>

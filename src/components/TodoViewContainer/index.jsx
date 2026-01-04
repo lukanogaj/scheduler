@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import supabase from "../../helper/supabaseClient";
 import TodayTodoCard from "../TodayTodoCard";
 // import useTodos from "../../hooks";
-const TodoViewContainer = ({ chevronHandler, chevron }) => {
+const TodoViewContainer = () => {
 	const [todos, setTodos] = useState([]);
 	// const [title, setTitle] = useState("");
 	// const [description, setDescription] = useState("");
@@ -24,6 +24,14 @@ const TodoViewContainer = ({ chevronHandler, chevron }) => {
 		else setTodos(data);
 	};
 
+	// Function to sort todos by today date
+	const today = new Date();
+	today.setHours(0, 0, 0, 0); // Start of the day
+	const tomorrow = new Date(today);
+	tomorrow.setDate(today.getDate() + 1);// Start of the tomorrow
+
+  // Filter today's todos 
+  const todays
 	// Function to delete todo
 	const deleteTodo = async (id) => {
 		await supabase.from("todos").delete().eq("id", id);
