@@ -5,48 +5,70 @@ import { Plus } from "../images/icons";
 import { faLastfm } from "@fortawesome/free-brands-svg-icons";
 // import useTodos from "../../hooks";
 
-const NewTodoHandler = ({ onClose }) => {
+const NewTodoHandler = ({ onClose, fetchTodos }) => {
 	const [title, setTitle] = useState("");
 	const [date, setDate] = useState("");
 	const [description, setDescription] = useState("");
-	const [todos, setTodos] = useState([]);
+	// const [todos, setTodos] = useState([]);
 	// const [isSubmitted, setIsSubmitted] = useState(false);
 	const [showSuccess, setShowSuccess] = useState(false);
 	const [formVisible, setFormVisible] = useState(true);
 
-	useEffect(() => {
-		fetchTodos();
-	}, []);
+	// useEffect(() => {
+	// 	fetchTodos();
+	// }, []);
 
-	const fetchTodos = async () => {
-		const { data, error } = await supabase
-			.from("todos")
-			.select("*")
-			.order("created_at", { ascending: true });
-		if (error) console.error(error);
-		else setTodos(data);
-	};
+	// const fetchTodos = async () => {
+	// 	const { data, error } = await supabase
+	// 		.from("todos")
+	// 		.select("*")
+	// 		.order("created_at", { ascending: true });
+	// 	if (error) console.error(error);
+	// 	else setTodos(data);
+	// };
 	// Function to add todo into database
 	const addTodo = async () => {
 		if (!title.trim() || !date) return;
 		const due_at = new Date(`${date}`);
+
 		const { error } = await supabase
 			.from("todos")
 			.insert([{ title, due_at, description }]);
-		if (error) console.error(error);
-		else {
-			// Reset date from the fields
+
+		if (error) {
+			console.error(error);
+		} else {
 			setTitle("");
 			setDate("");
 			setDescription("");
-			// Refresh todos
-			fetchTodos();
-			// Hide form immediately
+
+			// IMPORTANT: Call the parent's fetch function
+			await fetchTodos();
+
 			setFormVisible(false);
-			// Show success message
 			setShowSuccess(true);
 		}
 	};
+	// const addTodo = async () => {
+	// 	if (!title.trim() || !date) return;
+	// 	const due_at = new Date(`${date}`);
+	// 	const { error } = await supabase
+	// 		.from("todos")
+	// 		.insert([{ title, due_at, description }]);
+	// 	if (error) console.error(error);
+	// 	else {
+	// 		// Reset date from the fields
+	// 		setTitle("");
+	// 		setDate("");
+	// 		setDescription("");
+	// 		// Refresh todos
+	// 		fetchTodos();
+	// 		// Hide form immediately
+	// 		setFormVisible(false);
+	// 		// Show success message
+	// 		setShowSuccess(true);
+	// 	}
+	// };
 
 	// Auto-hide success message AND close form after 2s
 	useEffect(() => {
