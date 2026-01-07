@@ -3,7 +3,7 @@ import { Plus } from "../../images/icons";
 import { useState } from "react";
 import NewTodoHandler from "../../NewTodoHandler";
 
-const AddTaskControl = () => {
+const AddTaskControl = ({ addTodo }) => {
 	const [isOpen, setIsOpen] = useState(false);
 	return (
 		<div className={styles.addTaskControl}>
@@ -12,7 +12,12 @@ const AddTaskControl = () => {
 				onClick={() => setIsOpen(true)}
 			/>
 			<h1>Add Task</h1>
-			{isOpen && <NewTodoHandler onClose={() => setIsOpen(false)} />}
+			{isOpen && (
+				<NewTodoHandler
+					addTodo={addTodo}
+					onClose={() => setIsOpen(false)}
+				/>
+			)}
 		</div>
 	);
 };

@@ -1,71 +1,51 @@
 import styles from "./index.module.scss";
 import { useState, useEffect } from "react";
-import supabase from "../../helper/supabaseClient";
+// import supabase from "../../helper/supabaseClient";
 import { Plus } from "../images/icons";
-import { faLastfm } from "@fortawesome/free-brands-svg-icons";
-// import useTodos from "../../hooks";
+import useTodos from "../../helper";
 
-const NewTodoHandler = ({ onClose, fetchTodos }) => {
+const NewTodoHandler = ({ onClose, addTodo }) => {
 	const [title, setTitle] = useState("");
 	const [date, setDate] = useState("");
 	const [description, setDescription] = useState("");
-	// const [todos, setTodos] = useState([]);
-	// const [isSubmitted, setIsSubmitted] = useState(false);
 	const [showSuccess, setShowSuccess] = useState(false);
 	const [formVisible, setFormVisible] = useState(true);
 
-	// useEffect(() => {
-	// 	fetchTodos();
-	// }, []);
-
-	// const fetchTodos = async () => {
-	// 	const { data, error } = await supabase
-	// 		.from("todos")
-	// 		.select("*")
-	// 		.order("created_at", { ascending: true });
-	// 	if (error) console.error(error);
-	// 	else setTodos(data);
-	// };
-	// Function to add todo into database
-	const addTodo = async () => {
+	const handleAddSubmit = async () => {
 		if (!title.trim() || !date) return;
-		const due_at = new Date(`${date}`);
 
-		const { error } = await supabase
-			.from("todos")
-			.insert([{ title, due_at, description }]);
+		// Call the parent's function instead of defining a new one
+		await addTodo(title, description, date);
 
-		if (error) {
-			console.error(error);
-		} else {
-			setTitle("");
-			setDate("");
-			setDescription("");
-
-			// IMPORTANT: Call the parent's fetch function
-			await fetchTodos();
-
-			setFormVisible(false);
-			setShowSuccess(true);
-		}
+		// Reset local state and show success message
+		setTitle("");
+		setDate("");
+		setDescription("");
+		setFormVisible(false);
+		setShowSuccess(true);
+		// Note: Realtime handles the UI refresh automatically now.
 	};
+
+	// Function to add todo into database
 	// const addTodo = async () => {
 	// 	if (!title.trim() || !date) return;
 	// 	const due_at = new Date(`${date}`);
+
 	// 	const { error } = await supabase
 	// 		.from("todos")
 	// 		.insert([{ title, due_at, description }]);
-	// 	if (error) console.error(error);
-	// 	else {
-	// 		// Reset date from the fields
+
+	// 	if (error) {
+	// 		console.error(error);
+	// 	} else {
 	// 		setTitle("");
 	// 		setDate("");
 	// 		setDescription("");
-	// 		// Refresh todos
-	// 		fetchTodos();
-	// 		// Hide form immediately
+
+	// 		// IMPORTANT: Call the parent's fetch function
+	// 		await fetchTodos();
+
 	// 		setFormVisible(false);
-	// 		// Show success message
 	// 		setShowSuccess(true);
 	// 	}
 	// };
@@ -109,7 +89,7 @@ const NewTodoHandler = ({ onClose, fetchTodos }) => {
 
 						<button
 							className={styles.btnAddTask}
-							onClick={addTodo}>
+							onClick={handleAddSubmit}>
 							<Plus />
 							<span>Add Todo</span>
 						</button>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import supabase from "../helper/supabaseClient";
+// import supabase from "../helper/supabaseClient";
+import supabase from "./supabaseClient";
 
 const useTodos = () => {
 	const [todos, setTodos] = useState([]);
