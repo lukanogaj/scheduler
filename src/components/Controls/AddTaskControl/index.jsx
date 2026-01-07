@@ -4,6 +4,7 @@ import { useState } from "react";
 import NewTodoHandler from "../../NewTodoHandler";
 
 const AddTaskControl = ({ addTodo }) => {
+	console.log("AddTaskControl addTodo:", addTodo);
 	const [isOpen, setIsOpen] = useState(false);
 	return (
 		<div className={styles.addTaskControl}>
@@ -14,6 +15,7 @@ const AddTaskControl = ({ addTodo }) => {
 			<h1>Add Task</h1>
 			{isOpen && (
 				<NewTodoHandler
+					setIsOpen={setIsOpen}
 					addTodo={addTodo}
 					onClose={() => setIsOpen(false)}
 				/>

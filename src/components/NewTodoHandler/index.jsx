@@ -2,9 +2,9 @@ import styles from "./index.module.scss";
 import { useState, useEffect } from "react";
 // import supabase from "../../helper/supabaseClient";
 import { Plus } from "../images/icons";
-import useTodos from "../../helper";
 
 const NewTodoHandler = ({ onClose, addTodo }) => {
+	// console.log("NewTodoHandler addTodo:", addTodo);
 	const [title, setTitle] = useState("");
 	const [date, setDate] = useState("");
 	const [description, setDescription] = useState("");
@@ -25,30 +25,6 @@ const NewTodoHandler = ({ onClose, addTodo }) => {
 		setShowSuccess(true);
 		// Note: Realtime handles the UI refresh automatically now.
 	};
-
-	// Function to add todo into database
-	// const addTodo = async () => {
-	// 	if (!title.trim() || !date) return;
-	// 	const due_at = new Date(`${date}`);
-
-	// 	const { error } = await supabase
-	// 		.from("todos")
-	// 		.insert([{ title, due_at, description }]);
-
-	// 	if (error) {
-	// 		console.error(error);
-	// 	} else {
-	// 		setTitle("");
-	// 		setDate("");
-	// 		setDescription("");
-
-	// 		// IMPORTANT: Call the parent's fetch function
-	// 		await fetchTodos();
-
-	// 		setFormVisible(false);
-	// 		setShowSuccess(true);
-	// 	}
-	// };
 
 	// Auto-hide success message AND close form after 2s
 	useEffect(() => {
