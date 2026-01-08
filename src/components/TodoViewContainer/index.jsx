@@ -1,28 +1,11 @@
 import styles from "./index.module.scss";
 import TodayTodoCard from "../TodayTodoCard";
-// import useTodos from "../../helper";
-// import AddTaskControl from "../Controls/AddTaskControl/index.jsx";
-// import NewTodoHandler from "../NewTodoHandler/index.jsx";
-const TodoViewContainer = ({
-	todos,
-	addTodo,
-	completeTodo,
-	updateTodo,
-	deleteTodo,
-}) => {
-	// const { todos, deleteTodo, updateTodo, completeTodo, addTodo } = useTodos();
-	console.log("TodoViewContainer addTodo:", addTodo);
+
+const TodoViewContainer = ({ todos, completeTodo, updateTodo, deleteTodo }) => {
 	return (
 		<div className={styles.todoTodayContainer}>
 			<div className={styles.incompleteTodos}></div>
 			<div className={styles.toggleToday}>
-				{/* <TodayTodoCard /> */}
-				{/* Filter todos */}
-				{/* <AddTaskControl addTodo={addTodo} /> */}
-				{/* <NewTodoHandler
-					addTodo={addTodo}
-					setIsOpen={setIsOpen}
-				/> */}
 				<div className={styles.incompleteTodos}></div>
 				<div className={styles.toggleToday}>
 					<TodayTodoCard />

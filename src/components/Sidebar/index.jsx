@@ -8,11 +8,11 @@ import Workspace from "../Workspace";
 import Projects from "../Projects";
 import NewList from "../NewList";
 
-const Sidebar = () => {
+const Sidebar = ({ onAddTaskClick }) => {
 	return (
 		<div className={styles.sideBar}>
 			<Header />
-			<AddTaskControl />
+			<AddTaskControl onOpen={onAddTaskClick} />
 			{/* <AddNewTodoElement /> */}
 			<SearchControl />
 			<MyDay />
