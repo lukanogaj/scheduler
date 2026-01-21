@@ -16,7 +16,6 @@ const TodoViewContainer = ({ todos, completeTodo, updateTodo, deleteTodo }) => {
 		.sort((a, b) => new Date(a.due_at) - new Date(b.due_at));
 	// if (loading) return <div>Loading Todos...</div>;
 
-	console.log(todaysTodos);
 	return (
 		<div className={styles.todoTodayContainer}>
 			<div className={styles.incompleteTodos}></div>
