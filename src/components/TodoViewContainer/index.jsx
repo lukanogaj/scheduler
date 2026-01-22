@@ -7,21 +7,13 @@ const TodoViewContainer = ({ todos, completeTodo, updateTodo, deleteTodo }) => {
 	const tomorrow = new Date(today);
 	tomorrow.setDate(today.getDate() + 1);
 
-	const todaysTodos = todos
-		.filter((t) => {
-			if (!t.due_at) return false;
-			const dueDate = new Date(t.due_at);
-			return dueDate >= today && dueDate < tomorrow;
-		})
-		.sort((a, b) => new Date(a.due_at) - new Date(b.due_at));
-	// if (loading) return <div>Loading Todos...</div>;
-
 	return (
 		<div className={styles.todoTodayContainer}>
 			<div className={styles.incompleteTodos}></div>
 			<div className={styles.toggleToday}>
 				<div className={styles.incompleteTodos}></div>
 				<div className={styles.toggleToday}>
+					{todos.fil}
 					<TodayTodoCard />
 					{/* Filter todos */}
 					<div className={styles.incompleteTodos}>
