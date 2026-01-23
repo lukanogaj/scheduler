@@ -1,20 +1,28 @@
 import styles from "./index.module.scss";
 import TodayTodoCard from "../TodayTodoCard";
+import { useTodayTodos } from "../../hooks";
 
 const TodoViewContainer = ({ todos, completeTodo, updateTodo, deleteTodo }) => {
-	const today = new Date();
-	today.setHours(0, 0, 0, 0); // Start of today
-	const tomorrow = new Date(today);
-	tomorrow.setDate(today.getDate() + 1);
+	const todayTodos = useTodayTodos(todos);
 
 	return (
 		<div className={styles.todoTodayContainer}>
-			<div className={styles.incompleteTodos}></div>
 			<div className={styles.toggleToday}>
 				<div className={styles.incompleteTodos}></div>
 				<div className={styles.toggleToday}>
-					{todos.fil}
-					<TodayTodoCard />
+					{/* Filtering today todos  */}
+					{todayTodos
+						.filter((t) => !t.completed)
+						.map((todo) => (
+							<TodayTodoCard
+								key={todo.id}
+								todo={todo}
+								completeTodo={completeTodo}
+								updateTodo={updateTodo}
+								deleteTodo={deleteTodo}
+							/>
+						))}
+					{/* <TodayTodoCard /> */}
 					{/* Filter todos */}
 					<div className={styles.incompleteTodos}>
 						<h2>Incomplete Todos</h2>

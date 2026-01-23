@@ -10,7 +10,7 @@ const startOfTomorrow = () => {
 	return tomorrow;
 };
 
-const useTodayTodos = (todos) => {
+export const useTodayTodos = (todos = []) => {
 	const today = startOfToday();
 	const tomorrow = startOfTomorrow();
 	//
@@ -19,9 +19,7 @@ const useTodayTodos = (todos) => {
 		const dueDate = new Date(todo.due_at);
 		return dueDate >= today && dueDate < tomorrow;
 	});
-
-	todayTodos.sort((a, b) => new Date(a.due_at) - new Date(b.due_at));
-	return todayTodos;
+	return [...todayTodos].sort(
+		(a, b) => new Date(a.due_at) - new Date(b.due_at),
+	);
 };
-
-export default useTodayTodos;
