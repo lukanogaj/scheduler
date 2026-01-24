@@ -1,25 +1,26 @@
 import { useState } from "react";
-import styles from "./index.module.scss";
-import Content from "../Content";
-import Sidebar from "../Sidebar";
+import styles from "./MyDayContainer.module.scss";
+
+import MyDayPage from "../../pages/MyDay/MyDayPage";
 import NewTodoHandler from "../NewTodoHandler";
 import useTodos from "../../helper";
 
-const Hero = () => {
+const MyDayContainer = () => {
 	const { todos, deleteTodo, updateTodo, completeTodo, addTodo } = useTodos();
 	const [isAddTaskOpen, setIsAddTaskOpen] = useState(false);
 
 	const openAddTask = () => setIsAddTaskOpen(true);
 	const closeAddTask = () => setIsAddTaskOpen(false);
 	return (
-		<div className={styles.hero}>
-			<Sidebar onAddTaskClick={openAddTask} />
-			<Content
+		<div className={styles.myDayContainer}>
+			<MyDayPage
 				todos={todos}
 				deleteTodo={deleteTodo}
 				updateTodo={updateTodo}
 				completeTodo={completeTodo}
+				onOpenAddTask={openAddTask}
 			/>
+
 			{isAddTaskOpen && (
 				<NewTodoHandler
 					addTodo={addTodo}
@@ -30,4 +31,4 @@ const Hero = () => {
 	);
 };
 
-export default Hero;
+export default MyDayContainer;

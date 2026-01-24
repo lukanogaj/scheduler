@@ -1,10 +1,10 @@
 import "./App.css";
 import Layout from "./components/Layout";
-import Hero from "./components/Hero";
+import MyDayContainer from "./components/MyDayContainer/MyDayContainer";
 function App() {
 	return (
 		<Layout>
-			<Hero />
+			<MyDayContainer />
 		</Layout>
 	);
 }

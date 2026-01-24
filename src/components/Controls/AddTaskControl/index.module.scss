@@ -1,20 +1,27 @@
 .addTaskControl {
 	display: flex;
-	justify-content: flex-start;
 	align-items: center;
 	padding-left: 2rem;
+	margin-top: 2rem;
+	text-align: left;
 	font-family: "Lato", sans-serif;
 	font-weight: 400;
-	margin-top: 2rem;
-	cursor: pointer;
-	// background-color: red;
 
-	h1 {
-		display: inline-block;
-		color: #9cbddb;
-		font-size: 3.4em;
-		font-weight: 400;
-		padding-left: 1.5em;
-		letter-spacing: 0.01em;
-	}
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+.addTaskControl h1 {
+	display: inline-block;
+	color: #9bcddb;
+	font-size: 3.4em;
+	font-weight: 400;
+	padding-left: 1.5em;
+	letter-spacing: 0.01em;
+}
+
+.addTaskControl:focus-visible {
+	outline: 2px solid #9bcddb;
+	outline-offset: 4px;
 }
