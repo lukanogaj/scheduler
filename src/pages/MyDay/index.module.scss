@@ -1,0 +1,16 @@
+.myDayPage {
+	width: 100%;
+	padding: 3rem 2.5rem 5rem;
+}
+
+.myDayContent {
+	/* Center column inside <main> (next to Sidebar) */
+	width: 100%;
+	max-width: 72rem; /* adjust 62–78rem depending on taste */
+	margin-inline: auto;
+
+	/* Layout */
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
