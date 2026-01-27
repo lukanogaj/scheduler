@@ -2,16 +2,15 @@ import styles from "./index.module.scss";
 import { Hash } from "../images/icons";
 
 const ProjectsNewDesign = () => {
-	const icon = {
-		color: "#3F8CBF",
-	};
+	const icon = { color: "#3F8CBF" };
+
 	return (
-		<div className={styles.projectsNewDesign}>
-			<div className={styles.leftDesign}>
+		<div className={styles.projectItem}>
+			<div className={styles.left}>
 				<Hash style={icon} />
-				<h1>New Design</h1>
+				<span className={styles.title}>New Design</span>
 			</div>
-			<div className={styles.projectsNewDesignCount}>4</div>
+			<span className={styles.count}>4</span>
 		</div>
 	);
 };

@@ -11,7 +11,6 @@ const Sidebar = ({ onAddTaskClick }) => {
 		<div className={styles.sideBar}>
 			<Header />
 			<AddTaskControl onOpen={onAddTaskClick} />
-			{/* <AddNewTodoElement /> */}
 			<SearchControl />
 			<Workspace />
 			<Projects />

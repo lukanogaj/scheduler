@@ -7,7 +7,7 @@ const Header = () => {
 	const [chevron, setChevron] = useState(true);
 	const icon = {
 		color: "#DBDDE1",
-		fontSize: "3em",
+		// fontSize: "3em",s
 	};
 
 	const dropdownHandler = () => {

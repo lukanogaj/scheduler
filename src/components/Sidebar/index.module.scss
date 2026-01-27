@@ -1,13 +1,64 @@
 .sideBar {
 	display: flex;
 	flex-direction: column;
-	gap: 2.5rem;
+	align-items: stretch;
 
-	width: clamp(16rem, 18vw, 20rem);
-	flex: 0 0 clamp(16rem, 18vw, 20rem);
+	/* width control */
+	flex: 0 0 30rem;
 
+	/* spacing */
+	padding: 1.25rem;
+	gap: 1.25rem;
+
+	/* visuals */
 	background-color: #2f3137;
 	min-height: 100vh;
-	padding: 2rem;
 	font-family: "Lato", sans-serif;
+
+	/* base text scale (neutral, safe) */
+	font-size: 0.95rem;
+	line-height: 1.2;
 }
+
+/* separators inside sidebar */
+.sideBar hr {
+	margin: 0.75rem 0;
+}
+
+// .sideBar {
+// 	display: flex;
+// 	flex-direction: column;
+
+// 	flex: 0 0 clamp(30rem, 17vw, 18.5rem); /* ~256px to ~296px */
+// 	padding: 1.25rem; /* was 2rem */
+// 	gap: 1.25rem; /* was 2.5rem */
+
+// 	background-color: #2f3137;
+// 	min-height: 100vh;
+// 	font-family: "Lato", sans-serif;
+
+// 	/* GLOBAL sidebar scale */
+// 	font-size: 0.95rem;
+// 	line-height: 1.2;
+// }
+
+// /* tighten all text a bit */
+// .sideBar h1,
+// .sideBar h2,
+// .sideBar h3,
+// .sideBar h4 {
+// 	font-size: 0.85rem;
+// 	font-weight: 600;
+// 	margin: 0;
+// }
+
+// /* tighten clickable rows */
+// .sideBar a,
+// .sideBar button {
+// 	font-size: 0.95rem;
+// }
+
+// /* reduce vertical space between blocks */
+// .sideBar hr {
+// 	margin: 0.75rem 0;
+// }

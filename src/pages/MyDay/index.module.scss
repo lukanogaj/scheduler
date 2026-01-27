@@ -5,12 +5,10 @@
 
 .myDayContent {
 	/* Center column inside <main> (next to Sidebar) */
+	display: grid;
+	justify-content: stretch;
 	width: 100%;
-	max-width: 72rem; /* adjust 62–78rem depending on taste */
+	max-width: 100rem; /* adjust 62–78rem depending on taste */
 	margin-inline: auto;
-
-	/* Layout */
-	display: flex;
-	flex-direction: column;
 	gap: 2rem;
 }

@@ -1,7 +1,83 @@
+/* =========================
+   1. Global Reset (YOURS)
+   ========================= */
 *,
 *::before,
 *::after {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+}
+
+/* =========================
+   2. CSS Variables (GLOBAL TOKENS)
+   ========================= */
+:root {
+	/* Fonts */
+	--font-sans:
+		"Lato", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Arial, sans-serif;
+
+	/* Backgrounds */
+	--bg-app: #1f2126;
+	--bg-sidebar: #2f3137;
+	--bg-input: #393a3e;
+
+	/* Text */
+	--text-primary: #ffffff;
+	--text-muted: #a9acb0;
+
+	/* Accent */
+	--accent: #9ad7e0;
+}
+
+/* =========================
+   3. Base Document Setup
+   ========================= */
+html,
+body,
+#root {
+	height: 100%;
+}
+
+body {
+	font-family: var(--font-sans);
+	background-color: var(--bg-app);
+	color: var(--text-primary);
+	line-height: 1.4;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================
+   4. Forms & Controls
+   ========================= */
+input,
+button,
+textarea {
+	font-family: inherit;
+	color: inherit;
+}
+
+/* Neutral button base */
+button {
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+/* Remove default input styles */
+input {
+	border: none;
+	outline: none;
+	background: transparent;
+}
+
+/* =========================
+   5. Media Defaults
+   ========================= */
+img,
+svg {
+	display: block;
+	max-width: 100%;
 }
