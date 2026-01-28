@@ -1,27 +1,38 @@
 .addTaskControl {
 	display: flex;
 	align-items: center;
-	padding-left: 2rem;
-	margin-top: 2rem;
-	text-align: left;
-	font-family: "Lato", sans-serif;
-	font-weight: 400;
+	justify-content: center;
+	gap: 0.9rem;
 
-	background: none;
+	width: 100%;
+	height: 72px; // nice big but not insane
+	margin-top: 0.75rem; // not 2rem
+	padding: 0 0.75rem;
+
+	background: transparent;
 	border: none;
 	cursor: pointer;
+
+	font-family: "Lato", sans-serif;
 }
 
-.addTaskControl h1 {
-	display: inline-block;
+.addTaskControl:hover {
+	background: rgba(255, 255, 255, 0.04);
+	border-radius: 14px;
+}
+
+.icon {
+	width: 44px;
+	height: 44px;
 	color: #9bcddb;
-	font-size: 3.4em;
-	font-weight: 400;
-	padding-left: 1.5em;
-	letter-spacing: 0.01em;
+	flex: 0 0 auto;
 }
 
-.addTaskControl:focus-visible {
-	outline: 2px solid #9bcddb;
-	outline-offset: 4px;
+.label {
+	color: #9bcddb;
+	font-size: 1.75rem; // strong but controlled
+	font-weight: 500;
+	letter-spacing: 0.01em;
+	line-height: 1;
+	white-space: nowrap; // prevents wrapping
 }

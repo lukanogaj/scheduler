@@ -3,35 +3,41 @@ import styles from "./index.module.scss";
 import mojo from "../images/mojo.jpg";
 import { ChevronDown, ChevronUp } from "../images/icons";
 import { BsLayoutSplit } from "react-icons/bs";
-const Header = () => {
-	const [chevron, setChevron] = useState(true);
-	const icon = {
-		color: "#DBDDE1",
-		// fontSize: "3em",s
-	};
 
-	const dropdownHandler = () => {
-		setChevron(!chevron);
-		console.log("Clicked");
-	};
+const Header = ({ onToggleSidebar }) => {
+	const [chevron, setChevron] = useState(true);
+
+	const dropdownHandler = () => setChevron((v) => !v);
 	return (
 		<div className={styles.header}>
-			<div className={styles.mojoHeader}>
-				<div className={styles.mojoImg}>
-					<img
-						src={mojo}
-						alt='Mojo'
-					/>
-				</div>
-				<h1>Lukasz</h1>
-				<div
-					className={styles.dropDownHandler}
-					onClick={dropdownHandler}>
-					{chevron ? <ChevronDown /> : <ChevronUp />}
-				</div>
+			<div className={styles.left}>
+				<button
+					className={styles.profileBtn}
+					onClick={dropdownHandler}
+					type='button'>
+					<span className={styles.avatarWrap}>
+						<img
+							src={mojo}
+							alt='Mojo'
+						/>
+					</span>
+
+					<span className={styles.name}>Lukasz</span>
+
+					<span className={styles.chevron}>
+						{chevron ? <ChevronDown /> : <ChevronUp />}
+					</span>
+				</button>
 			</div>
-			<div className={styles.split}>
-				<BsLayoutSplit style={icon} />
+
+			<div className={styles.right}>
+				<button
+					className={styles.collapseBtn}
+					type='button'
+					onClick={onToggleSidebar}
+					aria-label='Toggle sidebar'>
+					<BsLayoutSplit />
+				</button>
 			</div>
 		</div>
 	);
