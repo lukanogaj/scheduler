@@ -5,16 +5,21 @@ import { ChevronDown, ChevronUp } from "../images/icons";
 import { BsLayoutSplit } from "react-icons/bs";
 
 const Header = ({ onToggleSidebar }) => {
-	const [chevron, setChevron] = useState(true);
+	const [chevron, setChevron] = useState(false);
 
-	const dropdownHandler = () => setChevron((v) => !v);
+	const dropdownHandler = () => {
+		setChevron((prev) => !prev);
+	};
+
 	return (
 		<div className={styles.header}>
 			<div className={styles.left}>
 				<button
 					className={styles.profileBtn}
 					onClick={dropdownHandler}
-					type='button'>
+					type='button'
+					aria-expanded={chevron}
+					aria-label='Open profile menu'>
 					<span className={styles.avatarWrap}>
 						<img
 							src={mojo}
@@ -25,7 +30,7 @@ const Header = ({ onToggleSidebar }) => {
 					<span className={styles.name}>Lukasz</span>
 
 					<span className={styles.chevron}>
-						{chevron ? <ChevronDown /> : <ChevronUp />}
+						{chevron ? <ChevronUp /> : <ChevronDown />}
 					</span>
 				</button>
 			</div>

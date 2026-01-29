@@ -6,9 +6,8 @@
 	flex-shrink: 0;
 	display: flex;
 	flex-direction: column;
-	// align-items: stretch;
 
-	padding: 1rem;
+	padding: 1rem; /* sidebar internal spacing */
 	gap: 1rem;
 	background-color: #2f3137;
 	min-height: 100vh;
