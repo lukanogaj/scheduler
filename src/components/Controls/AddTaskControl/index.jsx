@@ -6,8 +6,14 @@ const AddTaskControl = ({ onOpen }) => {
 		<button
 			type='button'
 			className={styles.addTaskControl}
-			onClick={onOpen}>
-			<Plus className={styles.icon} />
+			onClick={onOpen}
+			aria-label='Add task'>
+			<span
+				className={styles.iconWrap}
+				aria-hidden='true'>
+				<Plus className={styles.icon} />
+			</span>
+
 			<span className={styles.label}>Add Task</span>
 		</button>
 	);

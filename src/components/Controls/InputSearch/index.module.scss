@@ -6,27 +6,41 @@
 
 .input {
 	width: 100%;
-	padding: 0.75rem 2.75rem 0.75rem 1rem;
-	background-color: #393a3e;
-	border: none;
-	border-radius: 999px;
-	color: #ffffff;
-	font-size: 0.95rem;
-	outline: none;
 
-	&::placeholder {
-		color: #9aacb0;
-		font-size: 0.9rem;
-	}
+	/* match reference height + feel */
+	height: 3.2rem;
+	padding: 0 3rem 0 1.1rem;
+
+	background: #3a3d42;
+	border: 1px solid rgba(255, 255, 255, 0.06);
+	border-radius: 14px;
+
+	color: #ffffff;
+	font-size: 1rem;
+
+	outline: none;
+}
+
+.input::placeholder {
+	color: #9aacb0;
+	font-size: 1rem;
+	font-weight: 800;
+}
+
+.input:focus {
+	border-color: rgba(155, 205, 219, 0.35);
+	background: rgba(255, 255, 255, 0.07);
 }
 
 .searchIcon {
 	position: absolute;
-	right: 0.9rem;
+	right: 1rem;
 	top: 50%;
 	transform: translateY(-50%);
-	width: 1.1rem;
-	height: 1.1rem;
-	color: #9aacb0;
+
+	width: 1.6rem;
+	height: 1.6rem;
+
+	color: #b4c0c4;
 	pointer-events: none;
 }
