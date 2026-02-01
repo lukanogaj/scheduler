@@ -1,17 +1,22 @@
 .workSpace {
 	display: flex;
 	flex-direction: column;
-	gap: 40px;
+	gap: 1rem;
 	width: 100%;
+	gap: 0.25rem;
+	padding: 0.85rem 0rem;
 	background-color: #2f3137;
-	font-family: "Lato", sans-serif;
-	border-top: 4px solid #a9acb0;
+	border-top: 2px solid #a9acb0;
 	border-right: none;
-	border-bottom: 4px solid #a9acb0;
+	border-bottom: 2px solid #a9acb0;
 	border-left: none;
 	h2 {
-		display: inline-block;
-		color: #a9acb0;
-		padding-top: 1rem;
+		margin: 0;
+
+		padding: 1.5rem 0rem 1.5rem 0rem;
+		font-size: 1.35rem;
+		font-weight: 600;
+		letter-spacing: 0.04em;
+		color: rgba(169, 172, 176, 0.9);
 	}
 }

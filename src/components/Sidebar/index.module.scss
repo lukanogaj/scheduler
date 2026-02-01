@@ -1,13 +1,13 @@
 /* separators inside sidebar */
 .sideBar {
-	width: clamp(24rem, 25vw, 26rem);
-	min-width: clamp(24rem, 25vw, 26rem);
-	flex: 0 0 clamp(24rem, 25vw, 26rem);
+	width: clamp(26rem, 27vw, 28rem);
+	min-width: clamp(26rem, 27vw, 28rem);
+	flex: 0 0 clamp(26rem, 27vw, 28rem);
 	flex-shrink: 0;
 	display: flex;
 	flex-direction: column;
 
-	padding: 1rem 1rem; /* sidebar internal spacing */
+	padding: 1.2rem 1.2rem; /* sidebar internal spacing */
 	gap: 2.8rem;
 	background-color: #2f3137;
 	min-height: 100vh;

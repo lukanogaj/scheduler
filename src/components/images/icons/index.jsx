@@ -67,16 +67,15 @@ export const Sun = (props) => (
 		<path d='m19.07 4.93-1.41 1.41' />
 	</svg>
 );
-export const Grid = (props) => (
+export const Grid = ({ className, ...props }) => (
 	<svg
 		xmlns='http://www.w3.org/2000/svg'
+		className={className}
 		{...props}
-		width='40'
-		height='40'
 		viewBox='0 0 24 24'
 		fill='none'
 		stroke='currentColor'
-		strokeWidth={2}>
+		strokeWidth='1.6'>
 		<rect
 			width='7'
 			height='7'

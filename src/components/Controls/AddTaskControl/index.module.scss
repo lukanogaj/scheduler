@@ -7,7 +7,7 @@
 	gap: 1rem;
 	// margin: 1.75rem 0.75rem 0.25rem;
 	// margin: 0.5rem 0.75rem;
-	padding: 0.75rem 1rem;
+	padding: 0.75rem 0.5rem;
 
 	min-height: 3.25rem; // touch-friendly, but not "giant"
 
@@ -41,16 +41,14 @@
 }
 
 .icon {
-	width: 3.2rem !important;
-	height: 3.2rem !important;
+	width: 3.6rem !important;
+	height: 3.6rem !important;
 	display: block;
 	color: #9bcddb;
 }
 
 .label {
-	font-size: 1.85rem;
+	font-size: 1.95rem;
 	font-weight: 600;
 	letter-spacing: 0.01em;
-	// line-height: 1;
-	// white-space: nowrap;
 }

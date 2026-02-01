@@ -2,14 +2,11 @@ import styles from "./index.module.scss";
 import { Grid } from "../images/icons";
 
 const AllTasksNotes = () => {
-	const icon = {
-		color: "#DBDDE1",
-	};
 	return (
-		<div className={styles.allTaskNotes}>
-			<div className={styles.allTaskNotesHead}>
-				<Grid style={icon} />
-				<h1>All</h1>
+		<div className={styles.allTasksNotes}>
+			<div className={styles.allTasksNotesHead}>
+				<Grid className={styles.icon} />
+				<span className={styles.label}>All</span>
 			</div>
 
 			<div className={styles.taskCount}>4</div>
