@@ -12,10 +12,24 @@ const Sidebar = ({ onAddTaskClick }) => {
 			<Header />
 			<AddTaskControl onOpen={onAddTaskClick} />
 			<SearchControl />
-			<Workspace />
-			<Projects />
-			<NewList />
+
+			<div className={styles.main}>
+				<Workspace />
+				<Projects />
+			</div>
+
+			<div className={styles.footer}>
+				<NewList />
+			</div>
 		</div>
+		// <div className={styles.sideBar}>
+		// 	<Header />
+		// 	<AddTaskControl onOpen={onAddTaskClick} />
+		// 	<SearchControl />
+		// 	<Workspace />
+		// 	<Projects />
+		// 	<NewList />
+		// </div>
 	);
 };
 

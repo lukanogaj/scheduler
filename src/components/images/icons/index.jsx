@@ -107,89 +107,96 @@ export const Grid = ({ className, ...props }) => (
 	</svg>
 );
 
-export const Menu = (props) => (
+export const SidebarToggle = ({ className, ...props }) => (
 	<svg
 		xmlns='http://www.w3.org/2000/svg'
-		{...props}
-		width='42'
-		height='42'
+		className={className}
 		viewBox='0 0 24 24'
 		fill='none'
 		stroke='currentColor'
-		strokeWidth={3}>
-		<path d='M3 5h1' />
-		<path d='M3 12h1' />
-		<path d='M3 19h1' />
-		<path d='M8 5h1' />
-		<path d='M8 12h1' />
-		<path d='M8 19h1' />
-		<path d='M13 5h8' />
-		<path d='M13 12h8' />
-		<path d='M13 19h8' />
+		{...props}>
+		<rect
+			x='3'
+			y='4'
+			width='18'
+			height='16'
+			rx='2'
+		/>
+		<path d='M9 4v16' />
 	</svg>
 );
 
-export const NotesIcon = (props) => (
+export const Menu = ({ className, ...props }) => (
 	<svg
 		xmlns='http://www.w3.org/2000/svg'
-		{...props}
-		width='24'
-		height='24'
+		className={className}
 		viewBox='0 0 24 24'
 		fill='none'
 		stroke='currentColor'
-		strokeWidth={2}>
-		<path d='M8 2v4' />
-		<path d='M12 2v4' />
-		<path d='M16 2v4' />
+		{...props}>
+		<path d='M3 5h18' />
+		<path d='M3 12h18' />
+		<path d='M3 19h18' />
+	</svg>
+);
+
+export const NotesIcon = ({ className, ...props }) => (
+	<svg
+		xmlns='http://www.w3.org/2000/svg'
+		className={className}
+		viewBox='0 0 24 24'
+		fill='none'
+		stroke='currentColor'
+		{...props}>
 		<rect
-			width='16'
-			height='18'
 			x='4'
 			y='4'
+			width='16'
+			height='18'
 			rx='2'
 		/>
-		<path d='M8 10h6' />
+		<path d='M8 10h8' />
 		<path d='M8 14h8' />
 		<path d='M8 18h5' />
 	</svg>
 );
-export const Hash = (props) => (
+
+export const Hash = ({ className, ...props }) => (
 	<svg
-		{...props}
 		xmlns='http://www.w3.org/2000/svg'
-		width='48'
-		height='48'
+		className={className}
 		viewBox='0 0 24 24'
 		fill='none'
 		stroke='currentColor'
-		strokeWidth={2}>
+		{...props}>
 		<line
 			x1='4'
-			x2='20'
 			y1='9'
+			x2='20'
 			y2='9'
 		/>
 		<line
 			x1='4'
-			x2='20'
 			y1='15'
+			x2='20'
 			y2='15'
 		/>
 		<line
 			x1='10'
-			x2='8'
 			y1='3'
+			x2='8'
 			y2='21'
 		/>
 		<line
 			x1='16'
-			x2='14'
 			y1='3'
+			x2='14'
 			y2='21'
 		/>
 	</svg>
 );
+
+
 export const Plus = (props) => (
 	<svg
 		{...props}

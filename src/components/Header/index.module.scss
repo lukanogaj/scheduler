@@ -6,6 +6,7 @@
 	width: 100%;
 	height: 3.5rem; /* ~56px */
 	background: #2f3137;
+	overflow: visible;
 }
 
 /* LEFT and RIGHT wrappers */
@@ -23,6 +24,13 @@
 	justify-content: center;
 
 	flex: 0 0 auto;
+
+	.icon {
+		width: 1.5rem;
+		height: 1.5rem;
+		stroke-width: 2.25;
+		color: rgba(230, 232, 234, 0.8);
+	}
 }
 /* Profile button */
 .profileBtn {

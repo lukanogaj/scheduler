@@ -1,24 +1,58 @@
 .notes {
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
+	justify-content: space-between;
+
 	width: 100%;
-	padding: 1em;
-	font-family: "Lato", sans-serif;
+	padding-left: 1rem;
 
-	.notesHead {
-		display: flex;
-		align-items: center;
-		width: 40%;
-		h1 {
-			display: inline-block;
-			padding-left: 1em;
-			color: #fff;
-		}
-	}
+	font-size: 1.25rem;
+	font-weight: 700;
+	line-height: 1.35;
 
-	.notesCount {
-		color: #fff;
-		font-size: 1.5em;
-	}
+	cursor: pointer;
+}
+
+.notes:hover {
+	background: rgba(255, 255, 255, 0.04);
+	border-radius: 0.5rem;
+}
+
+.notesHead {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+
+	flex: 1;
+	min-width: 0;
+}
+
+.icon {
+	width: 1.75rem;
+	height: 1.75rem;
+	display: block;
+
+	color: rgba(230, 232, 234, 0.75);
+	stroke-width: 2.5;
+}
+
+.label {
+	color: #e6e8ea;
+	white-space: nowrap;
+}
+
+.notesCount {
+	margin-left: auto;
+
+	font-size: 1.25rem;
+	font-weight: 700;
+	line-height: 1;
+	color: #e6e8ea;
+
+	background: rgba(255, 255, 255, 0.08);
+	padding: 0.35rem 0.65rem;
+	border-radius: 10px;
+
+	min-width: 1.75rem;
+	text-align: center;
 }

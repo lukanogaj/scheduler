@@ -2,8 +2,7 @@ import { useState } from "react";
 import styles from "./index.module.scss";
 import mojo from "../images/mojo.jpg";
 import { ChevronDown, ChevronUp } from "../images/icons";
-import { BsLayoutSplit } from "react-icons/bs";
-
+import { SidebarToggle } from "../images/icons";
 const Header = ({ onToggleSidebar }) => {
 	const [chevron, setChevron] = useState(false);
 
@@ -41,7 +40,7 @@ const Header = ({ onToggleSidebar }) => {
 					type='button'
 					onClick={onToggleSidebar}
 					aria-label='Toggle sidebar'>
-					<BsLayoutSplit />
+					<SidebarToggle className={styles.icon} />
 				</button>
 			</div>
 		</div>
