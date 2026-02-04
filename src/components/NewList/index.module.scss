@@ -1,25 +1,49 @@
-.newList {
+.footer {
 	display: flex;
-	width: 100%;
 	align-items: center;
 	justify-content: space-between;
-	margin-top: 5rem;
-	padding: 1em;
-	// background-color: red;
-	.leftNewList {
-		display: flex;
-		align-items: center;
-		width: 40%;
-		h1 {
-			display: inline-block;
-			padding-left: 1em;
-			color: #fff;
-			padding-right: 1em;
-		}
-	}
 
-	.projectsNewDesignCount {
-		color: #fff;
-		font-size: 1.5em;
+	padding: 1.25rem;
+	border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.newListBtn {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+
+	background: transparent;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+
+	color: rgba(255, 255, 255, 0.9);
+	font-size: 1.05rem;
+	font-weight: 600;
+
+	&:hover {
+		opacity: 0.9;
 	}
+}
+
+.label {
+	line-height: 1;
+}
+
+.rightBtn {
+	background: transparent;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	opacity: 0.85;
+
+	&:hover {
+		opacity: 1;
+	}
+}
+
+.icon {
+	width: 1.3rem;
+	height: 1.3rem;
+	flex-shrink: 0;
 }

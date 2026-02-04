@@ -1,11 +1,16 @@
 .content {
 	display: flex;
 	width: 100%;
-	min-height: 100vh;
-	background-color: #1e1e20;
+	height: 100%;
+	background-color: var(--bg-app);
 	align-items: stretch;
-	.main {
-		flex: 1;
-		min-width: 0;
-	}
+
+	overflow: hidden;
+}
+
+.main {
+	flex: 1;
+	min-width: 0;
+	overflow-y: auto;
+	overflow-x: hidden;
 }

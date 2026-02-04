@@ -1,27 +1,25 @@
-export const ChevronDown = (props) => (
+export const ChevronDown = ({ className, ...props }) => (
 	<svg
-		width='64'
-		height='64'
+		xmlns='http://www.w3.org/2000/svg'
 		viewBox='0 0 13 13'
 		fill='currentColor'
-		strokeWidth={4}
-		xmlns='http://www.w3.org/2000/svg'
+		className={className}
 		{...props}>
 		<path d='M4.01375 4.49313L6.5 6.97397L8.98625 4.49313L9.75 5.25688L6.5 8.50688L3.25 5.25688L4.01375 4.49313Z' />
 	</svg>
 );
 
-export const ChevronUp = (props) => (
+export const ChevronUp = ({ className, ...props }) => (
 	<svg
-		width='64'
-		height='64'
+		xmlns='http://www.w3.org/2000/svg'
 		viewBox='0 0 13 13'
 		fill='currentColor'
-		xmlns='http://www.w3.org/2000/svg'
+		className={className}
 		{...props}>
 		<path d='M8.98625 8.50687L6.5 6.02603L4.01375 8.50687L3.25 7.74312L6.5 4.49312L9.75 7.74312L8.98625 8.50687Z' />
 	</svg>
 );
+
 export const Search = ({ className, ...props }) => (
 	<svg
 		className={className}
@@ -43,15 +41,18 @@ export const Search = ({ className, ...props }) => (
 		/>
 	</svg>
 );
-export const Sun = (props) => (
+
+export const Sun = ({ className, ...props }) => (
 	<svg
 		xmlns='http://www.w3.org/2000/svg'
-		{...props}
-		width='40'
-		height='40'
 		viewBox='0 0 24 24'
 		fill='none'
-		stroke='currentColor'>
+		stroke='currentColor'
+		strokeWidth={2}
+		strokeLinecap='round'
+		strokeLinejoin='round'
+		className={className}
+		{...props}>
 		<circle
 			cx='12'
 			cy='12'
@@ -196,44 +197,49 @@ export const Hash = ({ className, ...props }) => (
 	</svg>
 );
 
-
-export const Plus = (props) => (
+export const Plus = ({ className, ...props }) => (
 	<svg
-		{...props}
 		xmlns='http://www.w3.org/2000/svg'
-		width='64'
-		height='64'
 		viewBox='0 0 24 24'
 		fill='none'
 		stroke='currentColor'
-		strokeWidth={1}>
+		strokeWidth={2}
+		strokeLinecap='round'
+		strokeLinejoin='round'
+		className={className}
+		{...props}>
 		<path d='M5 12h14' />
 		<path d='M12 5v14' />
 	</svg>
 );
-export const MenuFilter = (props) => (
+
+export const MenuFilter = ({ className, ...props }) => (
 	<svg
 		xmlns='http://www.w3.org/2000/svg'
-		width='44'
-		height='44'
 		viewBox='0 0 24 24'
 		fill='none'
-		stroke='#DBDDE1'
-		strokeWidth={2}>
+		stroke='currentColor'
+		strokeWidth={2}
+		strokeLinecap='round'
+		strokeLinejoin='round'
+		className={className}
+		{...props}>
 		<path d='M3 5h18' />
 		<path d='M3 12h18' />
 		<path d='M3 19h18' />
 	</svg>
 );
 
-export const SplitScreen = (props) => (
+export const SplitScreen = ({ className, ...props }) => (
 	<svg
-		viewBox='0 0 24 24'
-		width='24'
-		height='24'
-		role='img'
-		aria-hidden='false'
 		xmlns='http://www.w3.org/2000/svg'
+		viewBox='0 0 24 24'
+		fill='none'
+		stroke='currentColor'
+		strokeWidth={2}
+		strokeLinecap='round'
+		strokeLinejoin='round'
+		className={className}
 		{...props}>
 		<title>Vertical split</title>
 		<rect
@@ -242,35 +248,27 @@ export const SplitScreen = (props) => (
 			width='20'
 			height='16'
 			rx='2'
-			fill='none'
-			stroke='currentColor'
-			strokeWidth='2'
-			strokeLinecap='round'
-			strokeLinejoin='round'
 		/>
 		<line
 			x1='12'
 			y1='4'
 			x2='12'
 			y2='20'
-			stroke='currentColor'
-			strokeWidth='2'
-			strokeLinecap='round'
-			strokeLinejoin='round'
 		/>
 	</svg>
 );
 
-export const Dots = (props) => (
+export const Dots = ({ className, ...props }) => (
 	<svg
 		xmlns='http://www.w3.org/2000/svg'
-		{...props}
-		width='44'
-		height='44'
 		viewBox='0 0 24 24'
 		fill='none'
 		stroke='currentColor'
-		strokeWidth={2}>
+		strokeWidth={2}
+		strokeLinecap='round'
+		strokeLinejoin='round'
+		className={className}
+		{...props}>
 		<circle
 			cx='12'
 			cy='12'
@@ -288,46 +286,51 @@ export const Dots = (props) => (
 		/>
 	</svg>
 );
-export const Dot = (props) => (
+export const Dot = ({ className, ...props }) => (
 	<svg
 		xmlns='http://www.w3.org/2000/svg'
-		{...props}
-		width='44'
-		height='44'
 		viewBox='0 0 24 24'
 		fill='none'
 		stroke='currentColor'
-		strokeWidth={2}>
+		strokeWidth={2}
+		strokeLinecap='round'
+		strokeLinejoin='round'
+		className={className}
+		{...props}>
 		<circle
-			cx='12.1'
-			cy='12.1'
+			cx='12'
+			cy='12'
 			r='1'
 		/>
 	</svg>
 );
-export const Star = (props) => (
+
+export const Star = ({ className, ...props }) => (
 	<svg
 		xmlns='http://www.w3.org/2000/svg'
-		{...props}
-		width='54'
-		height='54'
 		viewBox='0 0 24 24'
 		fill='none'
 		stroke='currentColor'
-		strokeWidth={2}>
+		strokeWidth={2}
+		strokeLinecap='round'
+		strokeLinejoin='round'
+		className={className}
+		{...props}>
 		<path d='M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z' />
 	</svg>
 );
-export const Calendar = (props) => (
+
+export const Calendar = ({ className, ...props }) => (
 	<svg
 		xmlns='http://www.w3.org/2000/svg'
-		{...props}
-		width='54'
-		height='54'
 		viewBox='0 0 24 24'
 		fill='none'
 		stroke='currentColor'
-		strokeWidth={2}>
+		strokeWidth={2}
+		strokeLinecap='round'
+		strokeLinejoin='round'
+		className={className}
+		{...props}>
 		<path d='M11 14h1v4' />
 		<path d='M16 2v4' />
 		<path d='M3 10h18' />
@@ -342,51 +345,49 @@ export const Calendar = (props) => (
 	</svg>
 );
 
-export const CheckboxNotChecked = (props) => (
+export const CheckboxNotChecked = ({ className, ...props }) => (
 	<svg
-		width='24'
-		height='24'
+		xmlns='http://www.w3.org/2000/svg'
 		viewBox='0 0 24 24'
 		fill='currentColor'
-		xmlns='http://www.w3.org/2000/svg'
+		className={className}
 		{...props}>
 		<path d='M19 5V19H5V5H19ZM19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3Z' />
 	</svg>
 );
 
-export const CheckboxChecked = (props) => (
+export const CheckboxChecked = ({ className, ...props }) => (
 	<svg
-		width='24'
-		height='24'
+		xmlns='http://www.w3.org/2000/svg'
 		viewBox='0 0 24 24'
 		fill='currentColor'
-		xmlns='http://www.w3.org/2000/svg'
+		className={className}
 		{...props}>
 		<path d='M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM19 19H5V5H19V19ZM17.99 9L16.58 7.58L9.99 14.17L7.41 11.6L5.99 13.01L9.99 17L17.99 9Z' />
 	</svg>
 );
 
-export const DeleteIcon = (props) => (
+export const DeleteIcon = ({ className, ...props }) => (
 	<svg
-		width='24'
-		height='24'
+		xmlns='http://www.w3.org/2000/svg'
 		viewBox='0 0 24 24'
 		fill='currentColor'
-		xmlns='http://www.w3.org/2000/svg'
-		stroke
+		className={className}
 		{...props}>
 		<path d='M14.12 10.47L12 12.59L9.87 10.47L8.46 11.88L10.59 14L8.47 16.12L9.88 17.53L12 15.41L14.12 17.53L15.53 16.12L13.41 14L15.53 11.88L14.12 10.47ZM15.5 4L14.5 3H9.5L8.5 4H5V6H19V4H15.5ZM6 19C6 20.1 6.9 21 8 21H16C17.1 21 18 20.1 18 19V7H6V19ZM8 9H16V19H8V9Z' />
 	</svg>
 );
-export const Watch = (props) => (
+
+export const Watch = ({ className, ...props }) => (
 	<svg
 		xmlns='http://www.w3.org/2000/svg'
-		width='52'
-		height='52'
 		viewBox='0 0 24 24'
 		fill='none'
 		stroke='currentColor'
 		strokeWidth={2}
+		strokeLinecap='round'
+		strokeLinejoin='round'
+		className={className}
 		{...props}>
 		<path d='M12 6v6H8' />
 		<circle

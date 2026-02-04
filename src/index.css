@@ -1,5 +1,10 @@
 /* =========================
-   1. Global Reset (YOURS)
+   0. Fonts
+   ========================= */
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+/* =========================
+   1. Global Reset
    ========================= */
 *,
 *::before,
@@ -10,7 +15,7 @@
 }
 
 /* =========================
-   2. CSS Variables (GLOBAL TOKENS)
+   2. CSS Variables (Design Tokens)
    ========================= */
 :root {
 	/* Fonts */
@@ -29,6 +34,9 @@
 
 	/* Accent */
 	--accent: #9ad7e0;
+
+	/* Borders */
+	--border-subtle: rgba(255, 255, 255, 0.08);
 }
 
 /* =========================
@@ -45,8 +53,11 @@ body {
 	background-color: var(--bg-app);
 	color: var(--text-primary);
 	line-height: 1.4;
+
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+
+	overflow: hidden; /* 🔒 prevents layout / sidebar scroll fights */
 }
 
 /* =========================
@@ -59,25 +70,40 @@ textarea {
 	color: inherit;
 }
 
-/* Neutral button base */
+/* Neutral button baseline */
 button {
 	background: none;
 	border: none;
+	padding: 0;
 	cursor: pointer;
 }
 
-/* Remove default input styles */
+/* Neutral input baseline */
 input {
 	border: none;
 	outline: none;
 	background: transparent;
 }
 
+/* Accessible focus */
+:focus-visible {
+	outline: 2px solid rgba(255, 255, 255, 0.35);
+	outline-offset: 2px;
+}
+
 /* =========================
-   5. Media Defaults
+   5. Media Defaults (SAFE)
    ========================= */
-img,
-svg {
+img {
 	display: block;
 	max-width: 100%;
+	height: auto;
+}
+
+/* IMPORTANT:
+   Do NOT globally size SVGs.
+   Icons are controlled via component CSS only.
+*/
+svg {
+	display: block;
 }

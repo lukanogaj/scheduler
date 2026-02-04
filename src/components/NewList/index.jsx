@@ -1,19 +1,24 @@
 import styles from "./index.module.scss";
-import { Plus } from "../images/icons";
-import { MenuFilter } from "../images/icons";
-// import { RiMenuAddLine } from "react-icons/ri";
+import { Plus, MenuFilter } from "../images/icons";
 
-const NewList = () => {
-	const icon = {
-		color: "#D3D5D9",
-	};
+const NewList = ({ onNewList, onToggle }) => {
 	return (
-		<div className={styles.newList}>
-			<div className={styles.leftNewList}>
-				<Plus style={icon} />
-				<h1>New List</h1>
-			</div>
-			<MenuFilter style={icon} />
+		<div className={styles.footer}>
+			<button
+				className={styles.newListBtn}
+				type='button'
+				onClick={onNewList}>
+				<Plus className={styles.icon} />
+				<span className={styles.label}>New List</span>
+			</button>
+
+			<button
+				className={styles.rightBtn}
+				type='button'
+				onClick={onToggle}
+				aria-label='Sidebar menu'>
+				<MenuFilter className={styles.icon} />
+			</button>
 		</div>
 	);
 };

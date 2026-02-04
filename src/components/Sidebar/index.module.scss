@@ -1,37 +1,37 @@
-/* separators inside sidebar */
-/* sidebar container */
 .sideBar {
-	width: clamp(26rem, 27vw, 28rem);
-	min-width: clamp(26rem, 27vw, 28rem);
-	flex: 0 0 clamp(26rem, 27vw, 28rem);
-	flex-shrink: 0;
+	// width: clamp(26rem, 27vw, 28rem);
+	// min-width: clamp(26rem, 27vw, 28rem);
+	// flex: 0 0 clamp(26rem, 27vw, 28rem);
+	width: clamp(18rem, 22vw, 22rem);
+	min-width: clamp(18rem, 22vw, 22rem);
+	flex: 0 0 clamp(18rem, 22vw, 22rem);
 
 	display: flex;
 	flex-direction: column;
 
-	height: 100%;
-	min-height: 100vh;
-	align-self: stretch;
+	height: 100%; /* ✅ obey Content/Layout */
+	background-color: var(--bg-sidebar);
+
 	padding: 1.6rem 1.4rem 1.2rem;
 	gap: 1.25rem;
 
-	background-color: #2f3137;
-	overflow: hidden;
+	overflow: hidden; /* 🔒 prevents sidebar container scrolling */
+}
 
-	/* middle stack (Workspace + Projects) */
-	.main {
-		display: flex;
-		flex-direction: column;
-		gap: 1.25rem;
-	}
+/* middle stack (Workspace + Projects) */
+.main {
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
 
-	/* footer pinned to bottom */
-	.footer {
-		margin-top: auto;
-		padding-top: 1.25rem;
-	}
+	flex: 1; /* ✅ takes remaining space */
+	min-height: 0; /* 🔒 enables scrolling inside flex column */
+	overflow-y: auto; /* ✅ scroll happens here if content grows */
+}
 
-	hr {
-		margin: 0.75rem 0;
-	}
+/* footer pinned to bottom */
+.footer {
+	margin-top: auto;
+	padding-top: 1.25rem;
+	border-top: 1px solid var(--border-subtle);
 }

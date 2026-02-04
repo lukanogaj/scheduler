@@ -8,7 +8,7 @@ import NewList from "../NewList";
 
 const Sidebar = ({ onAddTaskClick }) => {
 	return (
-		<div className={styles.sideBar}>
+		<aside className={styles.sideBar}>
 			<Header />
 			<AddTaskControl onOpen={onAddTaskClick} />
 			<SearchControl />
@@ -21,15 +21,7 @@ const Sidebar = ({ onAddTaskClick }) => {
 			<div className={styles.footer}>
 				<NewList />
 			</div>
-		</div>
-		// <div className={styles.sideBar}>
-		// 	<Header />
-		// 	<AddTaskControl onOpen={onAddTaskClick} />
-		// 	<SearchControl />
-		// 	<Workspace />
-		// 	<Projects />
-		// 	<NewList />
-		// </div>
+		</aside>
 	);
 };
 
