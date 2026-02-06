@@ -1,14 +1,26 @@
 import styles from "./index.module.scss";
-import ProjectsTechUpgrade from "../ProjectsTechUpgrade";
-import ProjectsNewDesign from "../ProjectsNewDesign";
+import SidebarRow from "../SidebarRow";
+import { PROJECTS_DATA } from "../../data/sidebarData";
 
 const Projects = () => {
+	const { heading, items } = PROJECTS_DATA;
+
 	return (
-		<div className={styles.projects}>
-			<h2>Projects</h2>
-			<ProjectsTechUpgrade />
-			<ProjectsNewDesign />
-		</div>
+		<section className={styles.projects}>
+			<h4 className={styles.heading}>{heading}</h4>
+
+			<div className={styles.list}>
+				{items.map(({ id, label, icon, count, accent }) => (
+					<SidebarRow
+						key={id}
+						icon={icon}
+						label={label}
+						count={count}
+						accent={accent}
+					/>
+				))}
+			</div>
+		</section>
 	);
 };
 

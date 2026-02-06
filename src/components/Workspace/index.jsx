@@ -1,44 +1,27 @@
+import styles from "./index.module.scss";
 import SidebarRow from "../SidebarRow";
-import { Grid, List, Note } from "../images/icons"; // use your real icons
+import { WORKSPACE_DATA } from "../../data/sidebarData";
 
 const Workspace = () => {
+	const { heading, items } = WORKSPACE_DATA;
+
 	return (
-		<>
-			<SidebarRow
-				icon={Grid}
-				label='All'
-				count={4}
-				active
-			/>
-			<SidebarRow
-				icon={List}
-				label='Tasks'
-				count={4}
-			/>
-			<SidebarRow
-				icon={Note}
-				label='Notes'
-				count={4}
-			/>
-		</>
+		<section className={styles.workSpace}>
+			<h4 className={styles.heading}>{heading}</h4>
+
+			<div className={styles.list}>
+				{items.map(({ id, label, icon, count, active }) => (
+					<SidebarRow
+						key={id}
+						icon={icon}
+						label={label}
+						count={count}
+						active={active}
+					/>
+				))}
+			</div>
+		</section>
 	);
 };
 
 export default Workspace;
-
-// import AllTasksNotes from "../AllTasksNotes";
-// import Tasks from "../Tasks";
-// import Notes from "../Notes";
-
-// const Workspace = () => {
-// 	return (
-// 		<div className={styles.workSpace}>
-// 			<h2>Workspace</h2>
-// 			<AllTasksNotes />
-// 			<Tasks />
-// 			<Notes />
-// 		</div>
-// 	);
-// };
-
-// export default Workspace;

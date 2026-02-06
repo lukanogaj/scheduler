@@ -1,15 +1,32 @@
 import styles from "./index.module.scss";
 
-const SidebarRow = ({ icon: Icon, label, count, active = false, onClick }) => {
+const SidebarRow = ({
+	icon: Icon,
+	label,
+	count,
+	active = false,
+	accent, // 👈 NEW (optional: "blue" | "green")
+	onClick,
+}) => {
+	const className = [
+		styles.row,
+		active && styles.active,
+		accent && styles[`accent_${accent}`],
+	]
+		.filter(Boolean)
+		.join(" ");
+
 	return (
 		<button
 			type='button'
-			className={`${styles.row} ${active ? styles.active : ""}`}
+			className={className}
 			onClick={onClick}>
-			<div className={styles.left}>
-				{Icon && <Icon className={styles.icon} />}
+			<span className={styles.left}>
+				<span className={styles.icon}>
+					<Icon />
+				</span>
 				<span className={styles.label}>{label}</span>
-			</div>
+			</span>
 
 			{typeof count === "number" && (
 				<span className={styles.count}>{count}</span>

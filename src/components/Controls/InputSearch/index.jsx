@@ -1,16 +1,19 @@
 import styles from "./index.module.scss";
-import { Search } from "../../images/icons";
+import { SIDEBAR_SEARCH_DATA } from "../../../data/sidebarData";
 
 const InputSearch = () => {
+	const { placeholder, ariaLabel, icon: Icon } = SIDEBAR_SEARCH_DATA;
+
 	return (
 		<div className={styles.search}>
 			<input
 				type='search'
-				placeholder='Search'
+				placeholder={placeholder}
+				aria-label={ariaLabel}
 				name='search'
 				className={styles.input}
 			/>
-			<Search className={styles.searchIcon} />
+			<Icon className={styles.searchIcon} />
 		</div>
 	);
 };

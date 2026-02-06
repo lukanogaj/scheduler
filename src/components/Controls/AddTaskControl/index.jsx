@@ -1,20 +1,22 @@
 import styles from "./index.module.scss";
-import { Plus } from "../../images/icons";
+import { SIDEBAR_ADD_TASK_DATA } from "../../../data/sidebarData";
 
 const AddTaskControl = ({ onOpen }) => {
+	const { label, ariaLabel, icon: Icon } = SIDEBAR_ADD_TASK_DATA;
+
 	return (
 		<button
 			type='button'
 			className={styles.addTaskControl}
 			onClick={onOpen}
-			aria-label='Add task'>
+			aria-label={ariaLabel}>
 			<span
 				className={styles.iconWrap}
 				aria-hidden='true'>
-				<Plus className={styles.icon} />
+				<Icon className={styles.icon} />
 			</span>
 
-			<span className={styles.label}>Add Task</span>
+			<span className={styles.label}>{label}</span>
 		</button>
 	);
 };

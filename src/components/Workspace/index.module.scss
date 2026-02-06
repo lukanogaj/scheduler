@@ -1,23 +1,29 @@
 .workSpace {
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 
-	gap: 1.65rem; /* more air between rows */
-	width: 100%;
-	padding: 0.75rem 0 3.75rem; /* more breathing before bottom border */
-
+	padding: 0.85rem 0;
 	background-color: #2f3137;
-	border-top: 2px solid #a9acb0;
-	border-bottom: 2px solid #a9acb0;
-	border-right: none;
-	border-left: none;
+
+	/* subtle section separators like the design */
+	border-top: 1px solid rgba(169, 172, 176, 0.22);
+	border-bottom: 1px solid rgba(169, 172, 176, 0.22);
 }
 
-h2 {
+.heading {
 	margin: 0;
-	padding: 0.75rem 1rem 0.5rem; /* slightly bigger title spacing */
-	font-size: 1.35rem;
-	font-weight: 600;
-	letter-spacing: 0.04em;
+	padding: 0.6rem 1rem 0.5rem;
+
+	font-size: 0.95rem;
+	font-weight: 700;
+	letter-spacing: 0.02em;
+
 	color: rgba(169, 172, 176, 0.9);
+}
+
+.list {
+	display: grid;
+	gap: 0.25rem; /* tight like the design */
+	padding: 0 0.5rem 0.75rem;
 }
