@@ -5,7 +5,10 @@ const Content = ({ children }) => {
 	return (
 		<div className={styles.content}>
 			<Sidebar />
-			<main className={styles.main}>{children}</main>
+
+			<div className={styles.mainWrapper}>
+				<main className={styles.main}>{children}</main>
+			</div>
 		</div>
 	);
 };

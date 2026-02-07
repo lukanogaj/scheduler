@@ -1,15 +1,25 @@
 .content {
 	display: flex;
-	width: 100%;
 	height: 100%;
+	width: 100%;
 	background-color: var(--bg-app);
-	align-items: stretch;
-
 	overflow: hidden;
 }
 
-.main {
+/* centers ONLY the content column */
+.mainWrapper {
 	flex: 1;
+	display: flex;
+	justify-content: center;
+	background-color: var(--bg-app);
+}
+
+/* actual page content */
+.main {
+	width: 100%;
+	max-width: 76rem; /* 🔒 content width, not layout width */
+	padding-inline: 2rem;
+
 	min-width: 0;
 	overflow-y: auto;
 	overflow-x: hidden;

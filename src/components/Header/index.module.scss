@@ -4,120 +4,143 @@
 	justify-content: space-between;
 
 	width: 100%;
-	height: 3.5rem; /* ~56px */
-	background: #2f3137;
-	overflow: visible;
-}
+	height: 3.75rem; // ~60px, matches design weight
+	background: transparent;
 
-/* LEFT and RIGHT wrappers */
-.left {
-	display: flex;
-	align-items: center;
-
-	flex: 1;
-	min-width: 0;
-}
-
-.right {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	flex: 0 0 auto;
-
-	.icon {
-		width: 1.5rem;
-		height: 1.5rem;
-		stroke-width: 2.25;
-		color: rgba(230, 232, 234, 0.8);
+	/* LEFT */
+	.left {
+		display: flex;
+		align-items: center;
+		flex: 1;
+		min-width: 0;
 	}
-}
-/* Profile button */
-.profileBtn {
-	display: flex;
-	align-items: center;
-	gap: 0.95rem;
 
-	border: 0;
-	background: transparent;
-	color: #fff;
+	/* RIGHT */
+	.right {
+		display: flex;
+		align-items: center;
+		gap: 0.25rem;
+	}
 
-	padding: 0.5rem 0.75rem;
-	border-radius: 0.75rem;
-	cursor: pointer;
+	/* PROFILE BUTTON */
+	.profileBtn {
+		display: flex;
+		align-items: center;
+		gap: 0.9rem;
 
-	/* this drives name + chevron scale nicely */
-	font-size: 1rem;
-}
+		padding: 0.5rem 0.75rem;
+		border-radius: 0.75rem;
 
-.profileBtn:hover {
-	background: rgba(255, 255, 255, 0.06);
-}
+		background: transparent;
+		border: 0;
+		cursor: pointer;
 
-/* Avatar */
-.avatarWrap {
-	width: 3.25rem;
-	height: 3.25rem;
-	border-radius: 999rem;
-	overflow: hidden;
-	flex: 0 0 auto;
-}
+		color: rgba(255, 255, 255, 0.95);
 
-.avatarWrap img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	display: block;
-}
+		/* 🔑 this sets the scale for name + chevron */
+		font-size: 1.2rem;
 
-/* Name (bigger like design) */
-.name {
-	font-size: 1.25em;
-	font-weight: 600;
-	line-height: 1;
-}
+		&:hover {
+			background: rgba(255, 255, 255, 0.06);
+		}
+	}
 
-/* Chevron (bigger + stable width) */
-.chevron {
-	width: 2.5em; /* prevents tiny layout shift */
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	opacity: 0.9;
-	width: 1.5em;
-}
+	/* AVATAR */
+	.avatarWrap {
+		width: 2.9rem;
+		height: 2.9rem;
+		border-radius: 999rem;
+		overflow: hidden;
+		flex: 0 0 auto;
 
-.chevron svg {
-	width: 1.25em;
-	height: 1.25em;
-}
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			display: block;
+		}
+	}
 
-/* Collapse button (BsLayoutSplit) */
-.collapseBtn {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	/* NAME */
+	.name {
+		font-size: 1.3em; // ⬅ Lukasz now clearly dominant
+		font-weight: 600;
+		line-height: 1;
+		letter-spacing: 0.01em;
 
-	border: 0;
-	background: transparent;
-	color: #dbdde1;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
 
-	width: 2.75rem;
-	height: 2.75rem;
-	border-radius: 0.75rem;
-	cursor: pointer;
+	/* CHEVRON */
 
-	/* KEY: makes react-icon bigger */
-	font-size: 1.25rem;
-}
+	.chevron {
+		display: flex;
+		align-items: center;
+		justify-content: center;
 
-.profileBtn:hover,
-.collapseBtn:hover {
-	background: rgba(255, 255, 255, 0.06);
-}
+		width: 1.6em;
+		opacity: 0.9;
 
-/* Optional: ensure svg follows size */
-.collapseBtn svg {
-	width: 1.25em;
-	height: 1.25em;
+		svg {
+			width: 1.45em;
+			height: 1.45em;
+
+			stroke: currentColor;
+			stroke-width: 1.75; /* thinner */
+			stroke-linecap: round;
+			stroke-linejoin: round;
+
+			fill: none;
+		}
+	}
+
+	// .chevron {
+	// 	display: flex;
+	// 	align-items: center;
+	// 	justify-content: center;
+
+	// 	width: 1.6em; // stable hit area
+	// 	opacity: 0.9;
+
+	// 	svg {
+	// 		width: 1.45em;
+	// 		height: 1.45em;
+	// 		stroke: currentColor;
+	// 		stroke-width: 1.75; /* ⬅ thinner than default */
+	// 		stroke-linecap: round;
+	// 		stroke-linejoin: round;
+	// 	}
+	// }
+
+	/* COLLAPSE BUTTON */
+	.collapseBtn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		width: 2.75rem;
+		height: 2.75rem;
+		border-radius: 0.75rem;
+
+		background: transparent;
+		border: 0;
+		cursor: pointer;
+
+		color: rgba(230, 232, 234, 0.9);
+
+		/* icon scale relative to sidebar font-size */
+		font-size: 1.25rem;
+
+		&:hover {
+			background: rgba(255, 255, 255, 0.06);
+		}
+
+		svg {
+			width: 1.5em;
+			height: 1.5em;
+			stroke: currentColor;
+		}
+	}
 }

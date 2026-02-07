@@ -1,37 +1,54 @@
+/* middle stack (Workspace + Projects) */
 .sideBar {
-	// width: clamp(26rem, 27vw, 28rem);
-	// min-width: clamp(26rem, 27vw, 28rem);
-	// flex: 0 0 clamp(26rem, 27vw, 28rem);
-	width: clamp(18rem, 22vw, 22rem);
-	min-width: clamp(18rem, 22vw, 22rem);
-	flex: 0 0 clamp(18rem, 22vw, 22rem);
+	width: clamp(24.5rem, 29vw, 26rem);
+	min-width: clamp(24.5rem, 29vw, 26rem);
+	flex: 0 0 clamp(24.5rem, 29vw, 26rem);
 
 	display: flex;
 	flex-direction: column;
-
-	height: 100%; /* ✅ obey Content/Layout */
+	height: 100%;
 	background-color: var(--bg-sidebar);
 
-	padding: 1.6rem 1.4rem 1.2rem;
-	gap: 1.25rem;
+	padding: 1.75rem 1.6rem 1.4rem;
 
-	overflow: hidden; /* 🔒 prevents sidebar container scrolling */
+	/* normal rhythm */
+	gap: 1.1rem;
+
+	border-right: 1px solid rgba(255, 255, 255, 0.08);
+
+	font-size: 1.05rem;
+	line-height: 1.45;
+	font-weight: 500;
+	color: rgba(255, 255, 255, 0.94);
+
+	overflow: hidden;
 }
 
 /* middle stack (Workspace + Projects) */
 .main {
 	display: flex;
 	flex-direction: column;
-	gap: 1.25rem;
 
-	flex: 1; /* ✅ takes remaining space */
-	min-height: 0; /* 🔒 enables scrolling inside flex column */
-	overflow-y: auto; /* ✅ scroll happens here if content grows */
+	/* ✅ slightly roomier than sidebar top stack */
+	gap: 1.65rem;
+
+	flex: 1;
+	min-height: 0;
+	overflow-y: auto;
+
+	/* keeps scrollbar off the content */
+	padding-right: 0.25rem;
 }
 
 /* footer pinned to bottom */
 .footer {
 	margin-top: auto;
-	padding-top: 1.25rem;
-	border-top: 1px solid var(--border-subtle);
+	padding-top: 0;
+	border-top: 0;
+}
+
+/* icons scale with sidebar font-size */
+.sideBar svg {
+	width: 1.35em;
+	height: 1.35em;
 }
