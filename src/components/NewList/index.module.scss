@@ -2,34 +2,21 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	gap: 0.75rem;
 
 	padding: 1.25rem;
 	border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+/* applied on SidebarRow */
 .newListBtn {
-	display: flex;
-	align-items: center;
-	gap: 0.75rem;
-
+	flex: 1;
+	justify-content: flex-start;
+	padding: 0; // only if SidebarRow already has padding you want to keep/remove
 	background: transparent;
-	border: 0;
-	padding: 0;
-	cursor: pointer;
-
-	color: rgba(255, 255, 255, 0.9);
-	font-size: 1.05rem;
-	font-weight: 600;
-
-	&:hover {
-		opacity: 0.9;
-	}
 }
 
-.label {
-	line-height: 1;
-}
-
+/* keep right icon button */
 .rightBtn {
 	background: transparent;
 	border: 0;

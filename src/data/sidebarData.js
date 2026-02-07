@@ -8,6 +8,7 @@ import {
 	Menu,
 	NotesIcon,
 	Hash,
+	MenuFilter,
 } from "../components/images/icons";
 
 /* =========================
@@ -80,6 +81,29 @@ export const PROJECTS_DATA = {
 			icon: Hash,
 			count: 4,
 			accent: "green",
+		},
+	],
+};
+
+/* =========================
+   Sidebar Footer
+   ========================= */
+
+export const SIDEBAR_FOOTER_DATA = {
+	items: [
+		{
+			id: "new-list",
+			label: "New List",
+			icon: Plus,
+			action: "newList",
+			variant: "row",
+		},
+		{
+			id: "sidebar-menu",
+			icon: MenuFilter,
+			action: "toggle",
+			variant: "icon",
+			ariaLabel: "Sidebar menu",
 		},
 	],
 };

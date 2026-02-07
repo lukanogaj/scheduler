@@ -1,24 +1,41 @@
 import styles from "./index.module.scss";
-import { Plus, MenuFilter } from "../images/icons";
+import { SIDEBAR_FOOTER_DATA } from "../../data/sidebarData";
+import SidebarRow from "../SidebarRow";
 
 const NewList = ({ onNewList, onToggle }) => {
+	const actionsMap = {
+		newList: onNewList,
+		toggle: onToggle,
+	};
+
 	return (
 		<div className={styles.footer}>
-			<button
-				className={styles.newListBtn}
-				type='button'
-				onClick={onNewList}>
-				<Plus className={styles.icon} />
-				<span className={styles.label}>New List</span>
-			</button>
+			{SIDEBAR_FOOTER_DATA.items.map((item) => {
+				const onClick = actionsMap[item.action];
 
-			<button
-				className={styles.rightBtn}
-				type='button'
-				onClick={onToggle}
-				aria-label='Sidebar menu'>
-				<MenuFilter className={styles.icon} />
-			</button>
+				if (item.variant === "row") {
+					return (
+						<SidebarRow
+							key={item.id}
+							icon={item.icon}
+							label={item.label}
+							onClick={onClick}
+							className={styles.newListBtn}
+						/>
+					);
+				}
+
+				return (
+					<button
+						key={item.id}
+						type='button'
+						className={styles.rightBtn}
+						onClick={onClick}
+						aria-label={item.ariaLabel}>
+						<item.icon className={styles.icon} />
+					</button>
+				);
+			})}
 		</div>
 	);
 };
