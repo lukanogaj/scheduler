@@ -1,8 +1,9 @@
-import { useMemo } from "react";
+import { useFilteredTodos } from "./useFilteredTodos";
 import { isOverdue } from "../todos/utils/date";
 
-export const useOverdueTodos = (todos) => {
-	return useMemo(() => {
-		return todos.filter((todo) => isOverdue(todo.date));
-	}, [todos]);
+export const useOverdueTodos = (todos = []) => {
+	return useFilteredTodos(
+		todos,
+		(todo) => todo.due_at && isOverdue(todo.due_at),
+	);
 };

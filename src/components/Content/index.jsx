@@ -1,10 +1,10 @@
 import styles from "./index.module.scss";
 import Sidebar from "../../components/Sidebar";
 
-const Content = ({ children }) => {
+const Content = ({ children, onAddTaskClick }) => {
 	return (
 		<div className={styles.content}>
-			<Sidebar />
+			<Sidebar onAddTaskClick={onAddTaskClick} />
 
 			<div className={styles.mainWrapper}>
 				<main className={styles.main}>{children}</main>
