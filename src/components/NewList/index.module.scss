@@ -2,17 +2,15 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	gap: 0.75rem;
+	gap: 1rem;
 
 	padding: 1.25rem;
-	border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* applied on SidebarRow */
 .newListBtn {
 	flex: 1;
 	justify-content: flex-start;
-	padding: 0; // only if SidebarRow already has padding you want to keep/remove
 	background: transparent;
 }
 
@@ -20,9 +18,15 @@
 .rightBtn {
 	background: transparent;
 	border: 0;
-	padding: 0;
 	cursor: pointer;
 	opacity: 0.85;
+
+	// give it a consistent hit area
+	width: 2.25rem;
+	height: 2.25rem;
+	display: grid;
+	place-items: center;
+	border-radius: 0.75rem; // optional, only if the rest uses it
 
 	&:hover {
 		opacity: 1;
@@ -30,7 +34,7 @@
 }
 
 .icon {
-	width: 1.3rem;
-	height: 1.3rem;
+	width: 1.1em;
+	height: 1.1em;
 	flex-shrink: 0;
 }

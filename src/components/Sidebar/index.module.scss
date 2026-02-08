@@ -10,8 +10,6 @@
 	background-color: var(--bg-sidebar);
 
 	padding: 1.75rem 1.6rem 1.4rem;
-
-	/* normal rhythm */
 	gap: 1.1rem;
 
 	border-right: 1px solid rgba(255, 255, 255, 0.08);
@@ -24,31 +22,14 @@
 	overflow: hidden;
 }
 
-/* middle stack (Workspace + Projects) */
 .main {
 	display: flex;
 	flex-direction: column;
-
-	/* ✅ slightly roomier than sidebar top stack */
-	gap: 1.65rem;
+	gap: 1.75rem;
 
 	flex: 1;
 	min-height: 0;
 	overflow-y: auto;
 
-	/* keeps scrollbar off the content */
 	padding-right: 0.25rem;
-}
-
-/* footer pinned to bottom */
-.footer {
-	margin-top: auto;
-	padding-top: 0;
-	border-top: 0;
-}
-
-/* icons scale with sidebar font-size */
-.sideBar svg {
-	width: 1.35em;
-	height: 1.35em;
 }
