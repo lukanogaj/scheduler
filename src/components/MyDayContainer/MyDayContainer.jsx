@@ -25,6 +25,7 @@ const MyDayContainer = () => {
 
 	// 🔑 grouped actions (less prop noise)
 	const actions = {
+		addTodo,
 		deleteTodo,
 		updateTodo,
 		completeTodo,
