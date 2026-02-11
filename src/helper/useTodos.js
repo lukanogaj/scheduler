@@ -44,8 +44,7 @@ const useTodos = () => {
 				(payload) => {
 					console.log("REALTIME EVENT FIRED:", payload);
 					fetchTodos();
-				}
-				// () => fetchTodos() // This automatically runs when data changes anywhere
+				},
 			)
 			.subscribe();
 
