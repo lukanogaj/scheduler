@@ -21,12 +21,11 @@
 	cursor: pointer;
 	opacity: 0.85;
 
-	// give it a consistent hit area
 	width: 2.25rem;
 	height: 2.25rem;
 	display: grid;
 	place-items: center;
-	border-radius: 0.75rem; // optional, only if the rest uses it
+	border-radius: 0.75rem;
 
 	&:hover {
 		opacity: 1;

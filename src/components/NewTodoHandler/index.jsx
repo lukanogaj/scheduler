@@ -1,10 +1,8 @@
 import styles from "./index.module.scss";
 import { useState, useEffect } from "react";
-// import supabase from "../../helper/supabaseClient";
 import { Plus } from "../images/icons";
 
 const NewTodoHandler = ({ onClose, addTodo }) => {
-	// console.log("NewTodoHandler addTodo:", addTodo);
 	const [title, setTitle] = useState("");
 	const [date, setDate] = useState("");
 	const [description, setDescription] = useState("");
