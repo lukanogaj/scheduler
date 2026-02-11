@@ -1,6 +1,5 @@
 import styles from "./index.module.scss";
 
-import Content from "../../components/Content";
 import TodayTodoCard from "../../components/TodayTodoCard";
 
 const Section = ({ title, emptyText, todos, actions }) => {
@@ -29,27 +28,25 @@ const Section = ({ title, emptyText, todos, actions }) => {
 	);
 };
 
-const MyDayPage = ({ overdueTodos, todayTodos, actions, onOpenAddTask }) => {
+const MyDayPage = ({ overdueTodos, todayTodos, actions }) => {
 	return (
-		<Content onAddTaskClick={onOpenAddTask}>
-			<section className={styles.myDayPage}>
-				<div className={styles.myDayContent}>
-					<Section
-						title='Overdue'
-						emptyText='No overdue tasks 🎉'
-						todos={overdueTodos}
-						actions={actions}
-					/>
+		<section className={styles.myDayPage}>
+			<div className={styles.myDayContent}>
+				<Section
+					title='Overdue'
+					emptyText='No overdue tasks 🎉'
+					todos={overdueTodos}
+					actions={actions}
+				/>
 
-					<Section
-						title='Today'
-						emptyText='No tasks for today'
-						todos={todayTodos}
-						actions={actions}
-					/>
-				</div>
-			</section>
-		</Content>
+				<Section
+					title='Today'
+					emptyText='No tasks for today'
+					todos={todayTodos}
+					actions={actions}
+				/>
+			</div>
+		</section>
 	);
 };
 

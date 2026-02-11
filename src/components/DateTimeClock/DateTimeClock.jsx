@@ -2,18 +2,27 @@ import { useEffect, useMemo, useState } from "react";
 import styles from "./DateTimeClock.module.scss";
 
 const formatDateTime = (now) => {
-	// Date: "Thu 07, November"
-	const rawDate = new Intl.DateTimeFormat("en-GB", {
+	// Guard: ensure valid date
+	if (!(now instanceof Date) || isNaN(now)) {
+		return { date: "", time: "" };
+	}
+
+	// ----- Date using formatToParts (safe) -----
+	const dateFormatter = new Intl.DateTimeFormat("en-GB", {
 		weekday: "short",
 		day: "2-digit",
 		month: "long",
-	}).format(now); // "Thu, 07 November"
+	});
 
-	const [weekday, rest] = rawDate.split(", ");
-	const [day, month] = rest.split(" ");
+	const parts = dateFormatter.formatToParts(now);
+
+	const weekday = parts.find((p) => p.type === "weekday")?.value;
+	const day = parts.find((p) => p.type === "day")?.value;
+	const month = parts.find((p) => p.type === "month")?.value;
+
 	const date = `${weekday} ${day}, ${month}`;
 
-	// Time: "4:40 pm"
+	// ----- Time -----
 	const time = new Intl.DateTimeFormat("en-GB", {
 		hour: "numeric",
 		minute: "2-digit",

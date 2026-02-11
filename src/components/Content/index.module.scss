@@ -1,3 +1,29 @@
+// .content {
+// 	display: flex;
+// 	height: 100%;
+// 	width: 100%;
+// 	background-color: var(--bg-app);
+// 	overflow: hidden;
+// }
+
+// /* centers ONLY the content column */
+// .mainWrapper {
+// 	flex: 1;
+// 	display: flex;
+// 	justify-content: center;
+// 	background-color: var(--bg-app);
+// }
+
+// /* actual page content */
+// .main {
+// 	width: 100%;
+// 	max-width: 76rem; /* 🔒 content width, not layout width */
+// 	padding-inline: 2rem;
+
+// 	min-width: 0;
+// 	overflow-y: auto;
+// 	overflow-x: hidden;
+// }
 .content {
 	display: flex;
 	height: 100%;
@@ -6,18 +32,51 @@
 	overflow: hidden;
 }
 
-/* centers ONLY the content column */
+/* centers the content column */
 .mainWrapper {
 	flex: 1;
 	display: flex;
 	justify-content: center;
 	background-color: var(--bg-app);
+	min-width: 0;
+}
+
+/* NEW: shared container for header + main */
+.inner {
+	width: 100%;
+	max-width: 76rem; /* 🔒 content width */
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+}
+
+/* NEW: Header row (title left, utilities right) */
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+
+	/* match main horizontal padding so edges align */
+	padding: 2rem 2rem 1.5rem;
+}
+
+.headerLeft {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	min-width: 0;
+}
+
+.headerRight {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
 }
 
 /* actual page content */
 .main {
 	width: 100%;
-	max-width: 76rem; /* 🔒 content width, not layout width */
 	padding-inline: 2rem;
 
 	min-width: 0;
