@@ -5,7 +5,7 @@ export const ChevronDown = ({ className, ...props }) => (
 		viewBox='0 0 24 24'
 		fill='none'
 		stroke='currentColor'
-		strokeWidth='2'
+		strokeWidth={2}
 		strokeLinecap='round'
 		strokeLinejoin='round'
 		{...props}>
@@ -20,7 +20,7 @@ export const ChevronUp = ({ className, ...props }) => (
 		viewBox='0 0 24 24'
 		fill='none'
 		stroke='currentColor'
-		strokeWidth='2'
+		strokeWidth={2}
 		strokeLinecap='round'
 		strokeLinejoin='round'
 		{...props}>
@@ -38,7 +38,7 @@ export const Search = ({ className, ...props }) => (
 		viewBox='0 0 24 24'
 		fill='none'
 		stroke='currentColor'
-		strokeWidth='2.25'
+		strokeWidth={2.25}
 		strokeLinecap='round'
 		strokeLinejoin='round'>
 		<path d='m21 21-4.34-4.34' />
@@ -84,7 +84,7 @@ export const Grid = ({ className, ...props }) => (
 		viewBox='0 0 24 24'
 		fill='none'
 		stroke='currentColor'
-		strokeWidth='1.6'>
+		strokeWidth={1.6}>
 		<rect
 			width='7'
 			height='7'
@@ -123,6 +123,7 @@ export const SidebarToggle = ({ className, ...props }) => (
 		viewBox='0 0 24 24'
 		fill='none'
 		stroke='currentColor'
+		strokeWidth={2}
 		{...props}>
 		<rect
 			x='3'
@@ -142,6 +143,7 @@ export const Menu = ({ className, ...props }) => (
 		viewBox='0 0 24 24'
 		fill='none'
 		stroke='currentColor'
+		strokeWidth={2}
 		{...props}>
 		<path d='M3 5h18' />
 		<path d='M3 12h18' />
@@ -403,5 +405,22 @@ export const Watch = ({ className, ...props }) => (
 			cy='12'
 			r='10'
 		/>
+	</svg>
+);
+
+export const LightbulbIcon = ({ className, ...props }) => (
+	<svg
+		xmlns='http://www.w3.org/2000/svg'
+		viewBox='0 0 24 24'
+		fill='none'
+		stroke='currentColor'
+		strokeWidth={2}
+		strokeLinecap='round'
+		strokeLinejoin='round'
+		className={className}
+		{...props}>
+		<path d='M3 5h18' />
+		<path d='M3 12h18' />
+		<path d='M3 19h18' />
 	</svg>
 );

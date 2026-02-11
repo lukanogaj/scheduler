@@ -9,6 +9,7 @@ import {
 	NotesIcon,
 	Hash,
 	MenuFilter,
+	LightbulbIcon,
 } from "../components/images/icons";
 
 /* =========================
@@ -104,6 +105,25 @@ export const SIDEBAR_FOOTER_DATA = {
 			action: "toggle",
 			variant: "icon",
 			ariaLabel: "Sidebar menu",
+		},
+	],
+};
+
+/* ==========================
+MAIN_HEADER_DATA
+============================= */
+
+export const MAIN_HEADER_DATA = {
+	actions: [
+		{
+			id: "filter",
+			icon: MenuFilter,
+			ariaLabel: "Filter tasks",
+		},
+		{
+			id: "ideas",
+			icon: LightbulbIcon,
+			ariaLabel: "Ideas",
 		},
 	],
 };

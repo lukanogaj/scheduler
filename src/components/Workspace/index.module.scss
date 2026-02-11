@@ -2,28 +2,20 @@
 	width: 100%;
 	display: flex;
 	flex-direction: column;
+	padding: 0.75rem 0;
 
-	padding: 0.85rem 0;
-	background-color: #2f3137;
+	.heading {
+		margin: 0;
+		padding: 1.2rem 0.75rem 1.2rem 0.75rem;
+		font-size: 0.95rem;
+		font-weight: 700;
+		letter-spacing: 0.02em;
+		color: rgba(255, 255, 255, 0.6);
 
-	/* subtle section separators like the design */
-	border-top: 1px solid rgba(169, 172, 176, 0.22);
-	border-bottom: 1px solid rgba(169, 172, 176, 0.22);
-}
-
-.heading {
-	margin: 0;
-	padding: 0.6rem 1rem 0.5rem;
-
-	font-size: 0.95rem;
-	font-weight: 700;
-	letter-spacing: 0.02em;
-
-	color: rgba(169, 172, 176, 0.9);
-}
-
-.list {
-	display: grid;
-	gap: 0.25rem; /* tight like the design */
-	padding: 0 0.5rem 0.75rem;
+		.list {
+			display: grid;
+			gap: 0.25rem;
+			padding: 0 0.75rem 0.75rem 0.75rem;
+		}
+	}
 }

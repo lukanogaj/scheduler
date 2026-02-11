@@ -1,45 +1,51 @@
+/* SidebarSearch.module.scss */
 .search {
+	width: 100%;
 	position: relative;
-	width: 100%;
-}
 
-.input {
-	width: 100%;
-	height: 3.2rem;
-	padding: 0 3rem 0 1.1rem;
+	/* same “row box model” */
+	min-height: 3rem;
+	padding: 0.65rem 0.75rem;
+	border-radius: 0.6rem;
 
 	background: var(--bg-input);
 	border: 1px solid rgba(255, 255, 255, 0.06);
-	border-radius: 0.75rem;
-
-	color: var(--text-primary);
-
-	/* inherit sidebar typography */
-	font-size: inherit;
-	line-height: 1.2;
-
-	outline: none;
 }
 
-.input::placeholder {
-	color: var(--text-muted);
-	font-weight: 500; /* calm, modern */
-}
-
-.input:focus {
+.search:focus-within {
 	border-color: rgba(155, 205, 219, 0.35);
 	background: rgba(255, 255, 255, 0.07);
 }
 
+.input {
+	width: 100%;
+	border: 0;
+	outline: none;
+
+	/* input no longer “owns” the box */
+	background: transparent;
+
+	/* line-up with row typography */
+	font: inherit;
+	line-height: 1.2;
+
+	/* leave space for icon */
+	padding-right: 2.25rem;
+}
+
+.input::placeholder {
+	color: var(--text-muted);
+	font-weight: 500;
+}
+
 .searchIcon {
 	position: absolute;
-	right: 1rem;
+	right: 0.75rem;
 	top: 50%;
 	transform: translateY(-50%);
 
-	width: 1.2em;
-	height: 1.2em;
-
+	width: 1.1em;
+	height: 1.1em;
 	color: rgba(255, 255, 255, 0.55);
 	pointer-events: none;
 }
