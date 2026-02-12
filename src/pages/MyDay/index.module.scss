@@ -5,10 +5,6 @@
 
 .myDayContent {
 	width: 100%;
-
-	/* THIS is the Microsoft To Do magic */
-	max-width: 56rem; /* ~900px – perfect reading width */
-	margin-left: 4rem; /* align after sidebar, not centered in screen */
 	margin-right: 0;
 	display: grid;
 	gap: 1.25rem;
