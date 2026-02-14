@@ -1,6 +1,6 @@
 import styles from "./index.module.scss";
-
-import TodayTodoCard from "../../components/TodayTodoCard";
+import TodoRow from "../../components/TodoRow/TodoRow";
+// import TodayTodoCard from "../../components/TodayTodoCard";
 
 const Section = ({ title, emptyText, todos, actions }) => {
 	const isEmpty = !todos || todos.length === 0;
@@ -14,15 +14,17 @@ const Section = ({ title, emptyText, todos, actions }) => {
 			{isEmpty ? (
 				<p className={styles.emptyText}>{emptyText}</p>
 			) : (
-				todos.map((todo) => (
-					<TodayTodoCard
-						key={todo.id}
-						todo={todo}
-						deleteTodo={actions.deleteTodo}
-						updateTodo={actions.updateTodo}
-						completeTodo={actions.completeTodo}
-					/>
-				))
+				<div className={styles.todosList}>
+					{todos.map((todo) => (
+						<TodoRow
+							key={todo.id}
+							todo={todo}
+							deleteTodo={actions.deleteTodo}
+							updateTodo={actions.updateTodo}
+							completeTodo={actions.completeTodo}
+						/>
+					))}
+				</div>
 			)}
 		</div>
 	);

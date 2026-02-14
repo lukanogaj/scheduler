@@ -1,19 +1,48 @@
 .myDayPage {
 	width: 100%;
-	padding: 2.5rem 0;
+	padding: 2.5resm 0; // horizontal breathing room
 }
 
 .myDayContent {
 	width: 100%;
-	margin-right: 0;
+	max-width: 84rem;
+	margin-inline: auto;
 	display: grid;
-	gap: 1.25rem;
+	gap: 1.5rem;
 }
 
 .section {
 	width: 100%;
-	padding: 1.25rem 1.5rem;
-	border-radius: 14px;
+	border-radius: 16px;
 	background: rgba(255, 255, 255, 0.04);
 	border: 1px solid rgba(255, 255, 255, 0.06);
+	overflow: hidden;
+}
+
+.sectionHeader {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem 1.25rem;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sectionTitle {
+	margin: 0;
+	font-size: 1.05rem;
+	font-weight: 600;
+	letter-spacing: 0.2px;
+	opacity: 0.95;
+}
+
+.todosList {
+	padding: 1rem 1.25rem;
+	display: grid;
+	gap: 0.75rem;
+}
+
+.emptyText {
+	padding: 1rem 1.25rem;
+	margin: 0;
+	opacity: 0.7;
 }
