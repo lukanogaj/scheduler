@@ -1,12 +1,14 @@
-export const isSameDay = (a, b) => {
-	const d1 = new Date(a);
-	const d2 = new Date(b);
+const startOfDay = (date) => {
+	const d = new Date(date);
+	d.setHours(0, 0, 0, 0);
+	return d;
+};
 
-	return (
-		d1.getFullYear() === d2.getFullYear() &&
-		d1.getMonth() === d2.getMonth() &&
-		d1.getDate() === d2.getDate()
-	);
+export const isSameDay = (a, b) => {
+	const d1 = startOfDay(a);
+	const d2 = startOfDay(b);
+
+	return d1.getTime() === d2.getTime();
 };
 
 export const isToday = (date) => {
@@ -14,9 +16,5 @@ export const isToday = (date) => {
 };
 
 export const isOverdue = (date) => {
-	const d = new Date(date);
-	const today = new Date();
-	// normalize today to start of day
-	today.setHours(0, 0, 0, 0);
-	return d < today;
+	return startOfDay(date) < startOfDay(new Date());
 };

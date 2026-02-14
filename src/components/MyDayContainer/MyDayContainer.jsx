@@ -30,7 +30,7 @@ const MyDayContainer = () => {
 		<div className={styles.myDayContainer}>
 			<Content
 				onAddTaskClick={openAddTask}
-				headerLeft={<h1>My Day</h1>}>
+				appHeaderLeft={<h1>My Day</h1>}>
 				<MyDayPage
 					overdueTodos={overdueTodos}
 					todayTodos={todayTodos}
