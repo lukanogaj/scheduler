@@ -1,144 +1,3 @@
-// .content {
-// 	display: flex;
-// 	height: 100%;
-// 	width: 100%;
-// 	background-color: var(--bg-app);
-// 	overflow: hidden;
-// }
-
-// /* centers the content column */
-// .mainWrapper {
-// 	flex: 1;
-// 	display: flex;
-// 	justify-content: center;
-// 	background-color: var(--bg-app);
-// 	min-width: 0;
-// }
-
-// /* NEW: shared container for header + main */
-// .inner {
-// 	width: clamp(72rem, 82vw, 88rem);
-// 	margin: 0 auto;
-// 	display: flex;
-// 	flex-direction: column;
-// 	min-width: 0;
-// }
-
-// /* NEW: Header row (title left, utilities right) */
-// .header {
-// 	display: flex;
-// 	align-items: center;
-// 	justify-content: space-between;
-// 	gap: 1rem;
-
-// 	/* match main horizontal padding so edges align */
-// 	padding: 2rem 2rem 1.5rem;
-// }
-
-// .headerLeft {
-// 	display: flex;
-// 	align-items: center;
-// 	gap: 1rem;
-// 	min-width: 0;
-// }
-
-// .headerRight {
-// 	display: flex;
-// 	align-items: center;
-// 	gap: 1.5rem;
-// }
-
-// /* actual page content */
-// .main {
-// 	width: 100%;
-// 	padding-inline: 2rem;
-
-// 	min-width: 0;
-// 	overflow-y: auto;
-// 	overflow-x: hidden;
-// }
-/* Content.module.scss */
-
-// .content {
-// 	display: flex;
-// 	height: 100%;
-// 	width: 100%;
-// 	background-color: var(--bg-app);
-// 	overflow: hidden;
-// }
-
-// /* main area: header + page column stacked */
-// .mainWrapper {
-// 	flex: 1;
-// 	display: flex;
-// 	flex-direction: column;
-
-// 	/* THIS is valid and useful: it centers your clamped column */
-// 	align-items: center;
-
-// 	background-color: var(--bg-app);
-// 	min-width: 0;
-// }
-
-// /* ===== Header (full width bar) ===== */
-// .header {
-// 	width: 100%;
-// 	position: relative; /* allows absolute utilities */
-// 	padding: 2rem 2rem 1.5rem; /* defines the “edge” */
-// }
-
-// /* clamped header content (title + date/time) */
-// .headerInner {
-// 	width: clamp(72rem, 82vw, 88rem);
-// 	margin: 0 auto;
-
-// 	display: flex;
-// 	justify-content: space-between;
-
-// 	/* keep date/time top-aligned like the reference */
-// 	align-items: flex-start;
-
-// 	min-width: 0;
-// }
-
-// .headerLeft {
-// 	display: flex;
-// 	align-items: center;
-// 	gap: 1rem;
-// 	min-width: 0;
-// }
-
-// /* pinned far-right utilities (icons only) */
-// .headerUtilities {
-// 	position: absolute;
-
-// 	/* align with the header padding */
-// 	top: 2rem;
-// 	right: 2rem;
-
-// 	display: flex;
-// 	align-items: center;
-// }
-
-// /* ===== Page column ===== */
-// .inner {
-// 	width: clamp(72rem, 82vw, 88rem);
-// 	margin: 0 auto;
-
-// 	display: flex;
-// 	flex-direction: column;
-// 	min-width: 0;
-// }
-
-// .main {
-// 	width: 100%;
-// 	padding-inline: 2rem;
-
-// 	min-width: 0;
-// 	overflow-y: auto;
-// 	overflow-x: hidden;
-// }
-
 .content {
 	display: flex;
 	height: 100%;
@@ -147,11 +6,13 @@
 	overflow: hidden;
 }
 
+/* Sidebar + main area */
 .mainWrapper {
 	flex: 1;
 	display: flex;
 	justify-content: center;
 	min-width: 0;
+	position: relative; /* anchor for rightRail */
 }
 
 /* clamped column */
@@ -163,11 +24,11 @@
 	min-width: 0;
 }
 
-/* header uses SAME padding as main => perfect alignment */
+/* header aligned with main padding */
 .header {
 	display: flex;
 	justify-content: space-between;
-	align-items: flex-start;
+	align-items: center; /* ✅ important */
 	padding: 2rem 2rem 1.5rem;
 	gap: 1rem;
 }
@@ -182,10 +43,20 @@
 	gap: 1.25rem;
 }
 
+/* page content */
 .main {
 	width: 100%;
 	padding-inline: 2rem;
 	min-width: 0;
 	overflow-y: auto;
 	overflow-x: hidden;
+}
+
+/* ✅ far-right icon position */
+.rightRail {
+	position: absolute;
+	top: 2rem; /* same as header top padding */
+	right: 2rem; /* same as header side padding */
+	display: flex;
+	align-items: center;
 }
