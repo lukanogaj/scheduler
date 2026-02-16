@@ -31,10 +31,13 @@ export const removeTodo = async (id) => {
 };
 
 // UPDATE (title)
-export const updateTodoTitle = async (id, title) => {
+export const updateTodoTitle = async (id, updates) => {
+	if (!updates || typeof updates !== "object") {
+		throw new Error("updateTodoFields: updates must be an object");
+	}
 	const { data, error } = await supabase
 		.from("todos")
-		.update({ title })
+		.update({ updates })
 		.eq("id", id)
 		.select()
 		.single();

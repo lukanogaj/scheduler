@@ -44,7 +44,7 @@ const useTodos = () => {
 				(payload) => {
 					console.log("REALTIME EVENT FIRED:", payload);
 					fetchTodos();
-				}
+				},
 				// () => fetchTodos() // This automatically runs when data changes anywhere
 			)
 			.subscribe();
@@ -77,15 +77,16 @@ const useTodos = () => {
 		}
 	};
 	// UPDATE
-	const updateTodo = async (id, newTitle) => {
-		if (!newTitle) return;
+	const updateTodo = async (id, updates) => {
+		const { data, error } = await supabase
+			.from("todos")
+			.update(updates) // ← FIXED
+			.eq("id", id)
+			.select()
+			.single();
 
-		try {
-			await updateTodoTitle(id, newTitle);
-			await fetchTodos();
-		} catch (error) {
-			console.error("Error updating todo:", error);
-		}
+		if (error) throw error;
+		return data;
 	};
 
 	// COMPLETE

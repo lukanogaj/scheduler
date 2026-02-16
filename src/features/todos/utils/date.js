@@ -16,5 +16,11 @@ export const isToday = (date) => {
 };
 
 export const isOverdue = (date) => {
-	return startOfDay(date) < startOfDay(new Date());
+	const today = new Date();
+	today.setHours(0, 0, 0, 0);
+
+	const due = new Date(date);
+	due.setHours(0, 0, 0, 0);
+
+	return due < today;
 };
