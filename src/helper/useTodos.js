@@ -4,7 +4,6 @@ import {
 	fetchTodos as fetchTodosService,
 	insertTodo,
 	removeTodo,
-	updateTodoTitle,
 	markTodoComplete,
 } from "../services/todosServices";
 

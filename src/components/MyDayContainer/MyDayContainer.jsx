@@ -35,7 +35,6 @@ const MyDayContainer = () => {
 					overdueTodos={overdueTodos}
 					todayTodos={todayTodos}
 					actions={actions}
-					onOpenAddTask={openAddTask}
 				/>
 
 				{isAddTaskOpen && (

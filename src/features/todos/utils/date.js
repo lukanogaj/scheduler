@@ -1,3 +1,5 @@
+//“All comparisons are calendar-based (local start-of-day). Time-of-day is ignored.”
+
 const startOfDay = (date) => {
 	const d = new Date(date);
 	d.setHours(0, 0, 0, 0);
@@ -16,11 +18,11 @@ export const isToday = (date) => {
 };
 
 export const isOverdue = (date) => {
-	const today = new Date();
-	today.setHours(0, 0, 0, 0);
+	if (!date) return false;
 
-	const due = new Date(date);
-	due.setHours(0, 0, 0, 0);
-
+	const parsed = new Date(date);
+	if (isNaN(parsed.getTime())) return false;
+	const today = startOfDay(new Date());
+	const due = startOfDay(parsed);
 	return due < today;
 };
