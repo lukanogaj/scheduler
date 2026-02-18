@@ -14,6 +14,7 @@ const NewTodoHandler = ({ onClose, addTodo }) => {
 	const handleAddSubmit = async () => {
 		if (!title.trim() || !date) return;
 
+		console.log("NewTodoHandler date", date);
 		// Call the parent's function instead of defining a new one
 		await addTodo(title, description, date);
 
@@ -58,7 +59,7 @@ const NewTodoHandler = ({ onClose, addTodo }) => {
 							placeholder='Description'
 						/>
 						<input
-							type='datetime-local'
+							type='date'
 							value={date}
 							onChange={(e) => setDate(e.target.value)}
 						/>

@@ -12,10 +12,10 @@ export const fetchTodos = async () => {
 };
 
 // CREATE
-export const insertTodo = async ({ title, description, due_at }) => {
+export const insertTodo = async ({ title, description, due_on }) => {
 	const { data, error } = await supabase
 		.from("todos")
-		.insert([{ title, description, due_at }])
+		.insert([{ title, description, due_on }])
 		.select()
 		.single();
 
@@ -31,13 +31,13 @@ export const removeTodo = async (id) => {
 };
 
 // UPDATE (title)
-export const updateTodoTitle = async (id, updates) => {
+export const updateTodo = async (id, updates) => {
 	if (!updates || typeof updates !== "object") {
 		throw new Error("updateTodoFields: updates must be an object");
 	}
 	const { data, error } = await supabase
 		.from("todos")
-		.update({ updates })
+		.update(updates)
 		.eq("id", id)
 		.select()
 		.single();

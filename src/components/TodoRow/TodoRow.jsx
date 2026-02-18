@@ -2,11 +2,6 @@ import styles from "./TodoRow.module.scss";
 import { Dots, Dot, Star, Watch } from "../images/icons";
 
 const TodoRow = ({ todo, completeTodo, updateTodo, deleteTodo }) => {
-	const parseLocalYYYYMMDD = (s) => {
-		const [y, m, d] = s.split("-").map(Number);
-		return new Date(y, m - 1, d, 0, 0, 0, 0);
-	};
-
 	if (!todo) return <div className={styles.error}>NO TODO PASSED</div>;
 
 	const onComplete = () => completeTodo(todo.id);
@@ -14,16 +9,13 @@ const TodoRow = ({ todo, completeTodo, updateTodo, deleteTodo }) => {
 	const onEdit = () => {
 		const nextTitle = prompt("New title", todo.title);
 		if (!nextTitle) return;
-		const nextDate = prompt("New date (YYYY-MM-DD)", "");
+		const nextDate = prompt("New date (YYYY-MM-DD)", todo.due_on ?? "");
 
 		const updates = { title: nextTitle };
 		if (nextDate) {
-			updates.due_at = new Date(nextDate);
+			updates.due_on = nextDate;
 		}
 
-		if (nextDate) {
-			updates.due_at = parseLocalYYYYMMDD(nextDate);
-		}
 		updateTodo(todo.id, updates);
 	};
 

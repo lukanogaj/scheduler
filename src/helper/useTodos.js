@@ -4,6 +4,7 @@ import {
 	fetchTodos as fetchTodosService,
 	insertTodo,
 	removeTodo,
+	updateTodo as updateTodoService,
 	markTodoComplete,
 } from "../services/todosServices";
 
@@ -11,11 +12,11 @@ const useTodos = () => {
 	const [todos, setTodos] = useState([]);
 	const [loading, setLoading] = useState(true);
 
-	// FUnction to make timezone wont change the data, keep local midnight
-	const toLocaleMidnight = (dateStr) => {
-		const [y, m, d] = dateStr.split("_").map(Number);
-		return new Date(y, m - 1, d, 0, 0, 0, 0);
-	};
+	// // FUnction to make timezone wont change the data, keep local midnight
+	// const toLocaleMidnight = (dateStr) => {
+	// 	const [y, m, d] = dateStr.split("-").map(Number);
+	// 	return new Date(y, m - 1, d, 0, 0, 0, 0);
+	// };
 
 	const fetchTodos = async () => {
 		setLoading(true);
@@ -53,13 +54,10 @@ const useTodos = () => {
 
 	// ADD
 	const addTodo = async (title, description, date) => {
-		const due_at =
-			typeof date === "string" && date.length === 10
-				? toLocaleMidnight(date)
-				: new Date(date);
+		const due_on = date;
 
 		try {
-			await insertTodo({ title, description, due_at });
+			await insertTodo({ title, description, due_on });
 			await fetchTodos();
 		} catch (error) {
 			console.error("Error adding todo:", error);
@@ -77,17 +75,13 @@ const useTodos = () => {
 	};
 	// UPDATE
 	const updateTodo = async (id, updates) => {
-		const { data, error } = await supabase
-			.from("todos")
-			.update(updates) // ← FIXED
-			.eq("id", id)
-			.select()
-			.single();
-
-		if (error) throw error;
-		return data;
+		try {
+			await updateTodoService(id, updates);
+			await fetchTodos();
+		} catch (error) {
+			console.log("Error updating todo:", error);
+		}
 	};
-
 	// COMPLETE
 	const completeTodo = async (id) => {
 		try {
