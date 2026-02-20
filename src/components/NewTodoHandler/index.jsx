@@ -11,10 +11,24 @@ const NewTodoHandler = ({ onClose, addTodo }) => {
 	const [showSuccess, setShowSuccess] = useState(false);
 	const [formVisible, setFormVisible] = useState(true);
 
+	const formatYYYYMMDD = (d) => {
+		const y = d.getFullYear();
+		const m = String(d.getMonth() + 1).padStart(2, "0");
+		const day = String(d.getDate()).padStart(2, "0");
+		return `${y}-${m}-${day}`;
+	};
+
+	const today = new Date();
+	const minDate = formatYYYYMMDD(
+		new Date(today.getFullYear() - 5, today.getMonth(), today.getDate()),
+	);
+	const maxDate = formatYYYYMMDD(
+		new Date(today.getFullYear() + 5, today.getMonth(), today.getDate()),
+	);
+	//////
 	const handleAddSubmit = async () => {
 		if (!title.trim() || !date) return;
 
-		console.log("NewTodoHandler date", date);
 		// Call the parent's function instead of defining a new one
 		await addTodo(title, description, date);
 
@@ -61,6 +75,8 @@ const NewTodoHandler = ({ onClose, addTodo }) => {
 						<input
 							type='date'
 							value={date}
+							min={minDate}
+							max={maxDate}
 							onChange={(e) => setDate(e.target.value)}
 						/>
 
