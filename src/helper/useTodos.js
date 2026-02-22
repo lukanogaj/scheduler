@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import supabase from "./supabaseClient";
 import {
+	isValidISODateString,
+	isWithinFiveYears,
+} from "../features/todos/utils/date";
+import {
 	fetchTodos as fetchTodosService,
 	insertTodo,
 	removeTodo,
@@ -11,12 +15,6 @@ import {
 const useTodos = () => {
 	const [todos, setTodos] = useState([]);
 	const [loading, setLoading] = useState(true);
-
-	// // FUnction to make timezone wont change the data, keep local midnight
-	// const toLocaleMidnight = (dateStr) => {
-	// 	const [y, m, d] = dateStr.split("-").map(Number);
-	// 	return new Date(y, m - 1, d, 0, 0, 0, 0);
-	// };
 
 	const fetchTodos = async () => {
 		setLoading(true);
@@ -54,15 +52,36 @@ const useTodos = () => {
 
 	// ADD
 	const addTodo = async (title, description, date) => {
-		const due_on = date;
+		const cleanTitle = title?.trim();
+		if (!cleanTitle) return { ok: false, error: "Title is required" };
+		if (!date) return { ok: false, error: "Due date is required" };
+
+		if (!isValidISODateString(date)) {
+			return { ok: false, error: "Invalid date (use YYYY-MM-DD)" };
+		}
+		if (!isWithinFiveYears(date)) {
+			return { ok: false, error: "Due date must be within 5 years of today" };
+		}
 
 		try {
-			await insertTodo({ title, description, due_on });
+			await insertTodo({ title: cleanTitle, description, due_on: date });
 			await fetchTodos();
+			return { ok: true };
 		} catch (error) {
 			console.error("Error adding todo:", error);
+			return { ok: false, error: "Failed to add todo" };
 		}
 	};
+	// const addTodo = async (title, description, date) => {
+	// 	const due_on = date;
+
+	// 	try {
+	// 		await insertTodo({ title, description, due_on });
+	// 		await fetchTodos();
+	// 	} catch (error) {
+	// 		console.error("Error adding todo:", error);
+	// 	}
+	// };
 
 	//DELETE
 	const deleteTodo = async (id) => {
@@ -75,13 +94,44 @@ const useTodos = () => {
 	};
 	// UPDATE
 	const updateTodo = async (id, updates) => {
+		if (!updates || typeof updates !== "object") {
+			return { ok: false, error: "Invalid updates payload" };
+		}
+
+		// If due_on is present, validate or clear
+		if ("due_on" in updates) {
+			if (updates.due_on === "") {
+				updates.due_on = null; // Option 1: clear date
+			} else if (updates.due_on != null) {
+				if (!isValidISODateString(updates.due_on)) {
+					return { ok: false, error: "Invalid date (use YYYY-MM-DD)" };
+				}
+				if (!isWithinFiveYears(updates.due_on)) {
+					return {
+						ok: false,
+						error: "Due date must be within 5 years of today",
+					};
+				}
+			}
+		}
+
 		try {
 			await updateTodoService(id, updates);
 			await fetchTodos();
+			return { ok: true };
 		} catch (error) {
 			console.log("Error updating todo:", error);
+			return { ok: false, error: "Failed to update todo" };
 		}
 	};
+	// const updateTodo = async (id, updates) => {
+	// 	try {
+	// 		await updateTodoService(id, updates);
+	// 		await fetchTodos();
+	// 	} catch (error) {
+	// 		console.log("Error updating todo:", error);
+	// 	}
+	// };
 	// COMPLETE
 	const completeTodo = async (id) => {
 		try {

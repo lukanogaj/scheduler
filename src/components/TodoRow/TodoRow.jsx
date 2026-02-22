@@ -6,18 +6,41 @@ const TodoRow = ({ todo, completeTodo, updateTodo, deleteTodo }) => {
 
 	const onComplete = () => completeTodo(todo.id);
 
-	const onEdit = () => {
-		const nextTitle = prompt("New title", todo.title);
-		if (!nextTitle) return;
+	const onEdit = async () => {
+		const nextTitleRaw = prompt("New title", todo.title);
+		if (nextTitleRaw === null) return; // Cancel
+
+		const nextTitle = nextTitleRaw.trim();
+		if (!nextTitle) return; // empty title not allowed
+
 		const nextDate = prompt("New date (YYYY-MM-DD)", todo.due_on ?? "");
+		if (nextDate === null) return; // Cancel date prompt
 
 		const updates = { title: nextTitle };
-		if (nextDate) {
-			updates.due_on = nextDate;
-		}
 
-		updateTodo(todo.id, updates);
+		// IMPORTANT:
+		// - empty string "" means "clear date" (Option 1)
+		// - non-empty string sets a new date
+		updates.due_on = nextDate;
+
+		const res = await updateTodo(todo.id, updates);
+		if (!res?.ok) {
+			alert(res?.error ?? "Failed to update todo");
+		}
 	};
+
+	// const onEdit = () => {
+	// 	const nextTitle = prompt("New title", todo.title);
+	// 	if (!nextTitle) return;
+	// 	const nextDate = prompt("New date (YYYY-MM-DD)", todo.due_on ?? "");
+
+	// 	const updates = { title: nextTitle };
+	// 	if (nextDate) {
+	// 		updates.due_on = nextDate;
+	// 	}
+
+	// 	updateTodo(todo.id, updates);
+	// };
 
 	return (
 		<div className={styles.todayCard}>
