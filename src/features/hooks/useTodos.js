@@ -1,16 +1,13 @@
 import { useState, useEffect } from "react";
-import supabase from "./supabaseClient";
-import {
-	isValidISODateString,
-	isWithinFiveYears,
-} from "../features/todos/utils/date";
+import supabase from "../../lib/supabaseClient";
+import { isValidISODateString, isWithinFiveYears } from "../todos/utils/date";
 import {
 	fetchTodos as fetchTodosService,
 	insertTodo,
 	removeTodo,
 	updateTodo as updateTodoService,
 	markTodoComplete,
-} from "../services/todosServices";
+} from "../../services/todosServices";
 
 const useTodos = () => {
 	const [todos, setTodos] = useState([]);
@@ -72,16 +69,6 @@ const useTodos = () => {
 			return { ok: false, error: "Failed to add todo" };
 		}
 	};
-	// const addTodo = async (title, description, date) => {
-	// 	const due_on = date;
-
-	// 	try {
-	// 		await insertTodo({ title, description, due_on });
-	// 		await fetchTodos();
-	// 	} catch (error) {
-	// 		console.error("Error adding todo:", error);
-	// 	}
-	// };
 
 	//DELETE
 	const deleteTodo = async (id) => {
@@ -124,14 +111,7 @@ const useTodos = () => {
 			return { ok: false, error: "Failed to update todo" };
 		}
 	};
-	// const updateTodo = async (id, updates) => {
-	// 	try {
-	// 		await updateTodoService(id, updates);
-	// 		await fetchTodos();
-	// 	} catch (error) {
-	// 		console.log("Error updating todo:", error);
-	// 	}
-	// };
+
 	// COMPLETE
 	const completeTodo = async (id) => {
 		try {

@@ -5,7 +5,7 @@ import styles from "./MyDayContainer.module.scss";
 import MyDayPage from "../../pages/MyDay";
 import NewTodoHandler from "../NewTodoHandler";
 
-import useTodos from "../../helper/useTodos";
+import useTodos from "../../features/hooks/useTodos";
 import { useOverdueTodos } from "../../features/hooks/useOverdueTodos";
 import { useTodayTodos } from "../../features/hooks/useTodayTodos";
 

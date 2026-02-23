@@ -1,4 +1,4 @@
-import supabase from "../helper/supabaseClient";
+import supabase from "../lib/supabaseClient";
 
 // READ
 export const fetchTodos = async () => {
