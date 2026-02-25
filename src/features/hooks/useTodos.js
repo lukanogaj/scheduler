@@ -40,7 +40,6 @@ const useTodos = () => {
 					console.log("REALTIME EVENT FIRED:", payload);
 					fetchTodos();
 				},
-				// () => fetchTodos() // This automatically runs when data changes anywhere
 			)
 			.subscribe();
 
@@ -79,21 +78,25 @@ const useTodos = () => {
 			console.error("Error deleting todo:", error);
 		}
 	};
+
 	// UPDATE
 	const updateTodo = async (id, updates) => {
 		if (!updates || typeof updates !== "object") {
 			return { ok: false, error: "Invalid updates payload" };
 		}
 
+		// Work on a copy (cleaner, avoids mutating caller object)
+		const nextUpdates = { ...updates };
+
 		// If due_on is present, validate or clear
-		if ("due_on" in updates) {
-			if (updates.due_on === "") {
-				updates.due_on = null; // Option 1: clear date
-			} else if (updates.due_on != null) {
-				if (!isValidISODateString(updates.due_on)) {
+		if ("due_on" in nextUpdates) {
+			if (nextUpdates.due_on === "") {
+				nextUpdates.due_on = null; // clear date
+			} else if (nextUpdates.due_on != null) {
+				if (!isValidISODateString(nextUpdates.due_on)) {
 					return { ok: false, error: "Invalid date (use YYYY-MM-DD)" };
 				}
-				if (!isWithinFiveYears(updates.due_on)) {
+				if (!isWithinFiveYears(nextUpdates.due_on)) {
 					return {
 						ok: false,
 						error: "Due date must be within 5 years of today",
@@ -103,7 +106,7 @@ const useTodos = () => {
 		}
 
 		try {
-			await updateTodoService(id, updates);
+			await updateTodoService(id, nextUpdates);
 			await fetchTodos();
 			return { ok: true };
 		} catch (error) {
@@ -111,7 +114,6 @@ const useTodos = () => {
 			return { ok: false, error: "Failed to update todo" };
 		}
 	};
-
 	// COMPLETE
 	const completeTodo = async (id) => {
 		try {
