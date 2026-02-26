@@ -1,9 +1,13 @@
-import { useFilteredTodos } from "./useFilteredTodos";
-import { isFuture } from "../todos/utils/date";
+import { useMemo } from "react";
+import { isFuture, startOfDay } from "../todos/utils/date"; // export startOfDay or make a helper
 
 export const useUpcomingTodos = (todos = []) => {
-	return useFilteredTodos(
-		todos,
-		(todo) => todo.due_on && !todo.completed && isFuture(todo.due_on),
-	);
+	return useMemo(() => {
+		return todos
+			.filter((todo) => todo.due_on && !todo.completed && isFuture(todo.due_on))
+			.sort(
+				(a, b) =>
+					startOfDay(a.due_on).getTime() - startOfDay(b.due_on).getTime(),
+			);
+	}, [todos]);
 };

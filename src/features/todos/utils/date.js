@@ -1,6 +1,6 @@
 //“All comparisons are calendar-based (local start-of-day). Time-of-day is ignored.”
 
-const startOfDay = (date) => {
+export const startOfDay = (date) => {
 	const d = new Date(date);
 	d.setHours(0, 0, 0, 0);
 	return d;

@@ -14,9 +14,15 @@
 .section {
 	width: 100%;
 	border-radius: 16px;
+	transition: background 0.25s ease;
 	background: rgba(255, 255, 255, 0.04);
 	border: 1px solid rgba(255, 255, 255, 0.06);
 	overflow: hidden;
+}
+
+.section:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
 .sectionHeader {
@@ -31,8 +37,9 @@
 	margin: 0;
 	font-size: 1.05rem;
 	font-weight: 600;
-	letter-spacing: 0.2px;
-	opacity: 0.95;
+	letter-spacing: 0.3px;
+	text-transform: none;
+	opacity: 1;
 }
 
 .todosList {
@@ -45,4 +52,65 @@
 	padding: 1rem 1.25rem;
 	margin: 0;
 	opacity: 0.7;
+}
+/* Variant tint — controlled left mood */
+
+.overdue {
+	background:
+		linear-gradient(
+			90deg,
+			rgba(231, 76, 60, 0.12) 0%,
+			rgba(231, 76, 60, 0.06) 8%,
+			transparent 22%
+		),
+		rgba(255, 255, 255, 0.04);
+}
+
+.upcoming {
+	background:
+		linear-gradient(
+			90deg,
+			rgba(59, 130, 246, 0.12) 0%,
+			rgba(59, 130, 246, 0.06) 8%,
+			transparent 22%
+		),
+		rgba(255, 255, 255, 0.04);
+}
+
+.undated {
+	background:
+		linear-gradient(
+			90deg,
+			rgba(156, 163, 175, 0.1) 0%,
+			rgba(156, 163, 175, 0.05) 8%,
+			transparent 22%
+		),
+		rgba(255, 255, 255, 0.04);
+}
+
+.overdue .sectionHeader {
+	background: linear-gradient(
+		90deg,
+		rgba(231, 76, 60, 0.18) 0%,
+		rgba(231, 76, 60, 0.06) 25%,
+		transparent 60%
+	);
+}
+
+.upcoming .sectionHeader {
+	background: linear-gradient(
+		90deg,
+		rgba(59, 130, 246, 0.18) 0%,
+		rgba(59, 130, 246, 0.06) 25%,
+		transparent 60%
+	);
+}
+
+.undated .sectionHeader {
+	background: linear-gradient(
+		90deg,
+		rgba(156, 163, 175, 0.15) 0%,
+		rgba(156, 163, 175, 0.05) 25%,
+		transparent 60%
+	);
 }

@@ -1,13 +1,11 @@
 import styles from "./index.module.scss";
 import TodoRow from "../../components/TodoRow/TodoRow";
-import UpcomingSection from "./UpcomingSection";
-import NoDateSection from "./NoDateSection";
 
-const Section = ({ title, emptyText, todos, actions }) => {
+const Section = ({ title, emptyText, todos, actions, variant }) => {
 	const isEmpty = !todos || todos.length === 0;
 
 	return (
-		<div className={styles.section}>
+		<div className={`${styles.section} ${variant ? styles[variant] : ""}`}>
 			<div className={styles.sectionHeader}>
 				<h2 className={styles.sectionTitle}>{title}</h2>
 			</div>
@@ -46,6 +44,7 @@ const MyDayPage = ({
 					emptyText='No overdue tasks 🎉'
 					todos={overdueTodos}
 					actions={actions}
+					variant='overdue'
 				/>
 
 				<Section
@@ -54,8 +53,21 @@ const MyDayPage = ({
 					todos={todayTodos}
 					actions={actions}
 				/>
-				<UpcomingSection upcomingTodos={upcomingTodos} />
-				<NoDateSection undatedTodos={undatedTodos} />
+				<Section
+					title='Upcoming'
+					emptyText='No upcoming tasks'
+					todos={upcomingTodos}
+					actions={actions}
+					variant='upcoming'
+				/>
+
+				<Section
+					title='No Date'
+					emptyText='No tasks without a date'
+					todos={undatedTodos}
+					actions={actions}
+					variant='undated'
+				/>
 			</div>
 		</section>
 	);

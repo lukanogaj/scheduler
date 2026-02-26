@@ -1,9 +1,10 @@
-import { useFilteredTodos } from "./useFilteredTodos";
+import { useMemo } from "react";
 import { isUndated } from "../todos/utils/date";
 
 export const useUndatedTodos = (todos = []) => {
-	return useFilteredTodos(
-		todos,
-		(todo) => isUndated(todo.due_on) && !todo.completed,
-	);
+	return useMemo(() => {
+		return todos
+			.filter((todo) => isUndated(todo.due_on) && !todo.completed)
+			.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
+	}, [todos]);
 };

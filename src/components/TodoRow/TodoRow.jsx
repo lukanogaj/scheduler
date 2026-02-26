@@ -29,19 +29,6 @@ const TodoRow = ({ todo, completeTodo, updateTodo, deleteTodo }) => {
 		}
 	};
 
-	// const onEdit = () => {
-	// 	const nextTitle = prompt("New title", todo.title);
-	// 	if (!nextTitle) return;
-	// 	const nextDate = prompt("New date (YYYY-MM-DD)", todo.due_on ?? "");
-
-	// 	const updates = { title: nextTitle };
-	// 	if (nextDate) {
-	// 		updates.due_on = nextDate;
-	// 	}
-
-	// 	updateTodo(todo.id, updates);
-	// };
-
 	return (
 		<div className={styles.todayCard}>
 			<div className={styles.headerToday}>
