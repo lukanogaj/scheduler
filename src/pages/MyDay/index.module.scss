@@ -1,6 +1,6 @@
 .myDayPage {
 	width: 100%;
-	padding: 2.5resm 0; // horizontal breathing room
+	padding: 2.5rem 0;
 }
 
 .myDayContent {
@@ -14,7 +14,10 @@
 .section {
 	width: 100%;
 	border-radius: 16px;
-	transition: background 0.25s ease;
+	transition:
+		background 0.25s ease,
+		transform 0.25s ease,
+		box-shadow 0.25s ease;
 	background: rgba(255, 255, 255, 0.04);
 	border: 1px solid rgba(255, 255, 255, 0.06);
 	overflow: hidden;

@@ -5,7 +5,8 @@ const Section = ({ title, emptyText, todos, actions, variant }) => {
 	const isEmpty = !todos || todos.length === 0;
 
 	return (
-		<div className={`${styles.section} ${variant ? styles[variant] : ""}`}>
+		<div
+			className={`${styles.section} ${variant && styles[variant] ? styles[variant] : ""}`}>
 			<div className={styles.sectionHeader}>
 				<h2 className={styles.sectionTitle}>{title}</h2>
 			</div>
@@ -18,9 +19,7 @@ const Section = ({ title, emptyText, todos, actions, variant }) => {
 						<TodoRow
 							key={todo.id}
 							todo={todo}
-							deleteTodo={actions.deleteTodo}
-							updateTodo={actions.updateTodo}
-							completeTodo={actions.completeTodo}
+							actions={actions}
 						/>
 					))}
 				</div>
