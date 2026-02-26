@@ -60,3 +60,20 @@ export const isWithinFiveYears = (dateStr) => {
 
 	return due >= min && due <= max;
 };
+
+// Future todos
+export const isFuture = (date) => {
+	if (!date) return false;
+
+	const parsed = new Date(date);
+	if (isNaN(parsed.getTime())) return false;
+
+	const today = startOfDay(new Date());
+	const due = startOfDay(parsed);
+
+	return due > today;
+};
+
+export const isUndated = (due_on) => {
+	return !due_on;
+};

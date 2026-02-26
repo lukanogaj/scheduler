@@ -1,17 +1,17 @@
 import TodayTodoCard from "../../components/TodayTodoCard";
 
-const OverdueSection = ({ undatedTodos, actions }) => {
+const NoDateSection = ({ undatedTodos, actions }) => {
 	return (
 		<section>
-			<h2>Overdue</h2>
+			<h2>No Date</h2>
 
 			{undatedTodos.length === 0 ? (
-				<p>No overdue tasks 🎉</p>
+				<p>No tasks without a date</p>
 			) : (
 				undatedTodos.map((todo) => (
 					<TodayTodoCard
 						key={todo.id}
-						undatedTodos={undatedTodos}
+						todo={todo}
 						actions={actions}
 					/>
 				))
@@ -20,4 +20,4 @@ const OverdueSection = ({ undatedTodos, actions }) => {
 	);
 };
 
-export default OverdueSection;
+export default NoDateSection;

@@ -27,9 +27,10 @@ const NewTodoHandler = ({ onClose, addTodo }) => {
 	//////
 	const handleAddSubmit = async () => {
 		const cleanTitle = title.trim();
-		if (!cleanTitle || !date) return;
+		if (!cleanTitle) return;
 
-		const res = await addTodo(cleanTitle, description, date);
+		const dueOn = date ? date : null;
+		const res = await addTodo(cleanTitle, description, dueOn);
 
 		// If validation or insert failed, show message and keep form open
 		if (!res?.ok) {

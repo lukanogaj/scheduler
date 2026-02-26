@@ -1,6 +1,7 @@
 import styles from "./index.module.scss";
 import TodoRow from "../../components/TodoRow/TodoRow";
-// import TodayTodoCard from "../../components/TodayTodoCard";
+import UpcomingSection from "./UpcomingSection";
+import NoDateSection from "./NoDateSection";
 
 const Section = ({ title, emptyText, todos, actions }) => {
 	const isEmpty = !todos || todos.length === 0;
@@ -30,7 +31,13 @@ const Section = ({ title, emptyText, todos, actions }) => {
 	);
 };
 
-const MyDayPage = ({ overdueTodos, todayTodos, actions }) => {
+const MyDayPage = ({
+	overdueTodos,
+	todayTodos,
+	actions,
+	upcomingTodos,
+	undatedTodos,
+}) => {
 	return (
 		<section className={styles.myDayPage}>
 			<div className={styles.myDayContent}>
@@ -47,6 +54,8 @@ const MyDayPage = ({ overdueTodos, todayTodos, actions }) => {
 					todos={todayTodos}
 					actions={actions}
 				/>
+				<UpcomingSection upcomingTodos={upcomingTodos} />
+				<NoDateSection undatedTodos={undatedTodos} />
 			</div>
 		</section>
 	);

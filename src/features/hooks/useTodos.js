@@ -49,18 +49,32 @@ const useTodos = () => {
 	// ADD
 	const addTodo = async (title, description, date) => {
 		const cleanTitle = title?.trim();
-		if (!cleanTitle) return { ok: false, error: "Title is required" };
-		if (!date) return { ok: false, error: "Due date is required" };
 
-		if (!isValidISODateString(date)) {
-			return { ok: false, error: "Invalid date (use YYYY-MM-DD)" };
+		if (!cleanTitle) {
+			return { ok: false, error: "Title is required" };
 		}
-		if (!isWithinFiveYears(date)) {
-			return { ok: false, error: "Due date must be within 5 years of today" };
+
+		// Validate only if date exists
+		if (date) {
+			if (!isValidISODateString(date)) {
+				return { ok: false, error: "Invalid date (use YYYY-MM-DD)" };
+			}
+
+			if (!isWithinFiveYears(date)) {
+				return {
+					ok: false,
+					error: "Due date must be within 5 years of today",
+				};
+			}
 		}
 
 		try {
-			await insertTodo({ title: cleanTitle, description, due_on: date });
+			await insertTodo({
+				title: cleanTitle,
+				description,
+				due_on: date ?? null, // ← key line for undated
+			});
+
 			await fetchTodos();
 			return { ok: true };
 		} catch (error) {

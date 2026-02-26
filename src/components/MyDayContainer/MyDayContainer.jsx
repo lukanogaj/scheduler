@@ -8,12 +8,16 @@ import NewTodoHandler from "../NewTodoHandler";
 import useTodos from "../../features/hooks/useTodos";
 import { useOverdueTodos } from "../../features/hooks/useOverdueTodos";
 import { useTodayTodos } from "../../features/hooks/useTodayTodos";
-
+import { useUpcomingTodos } from "../../features/hooks/useUpcomingTodos";
+import { useUndatedTodos } from "../../features/hooks/useUndatedTodos";
 const MyDayContainer = () => {
 	const { todos, deleteTodo, updateTodo, completeTodo, addTodo } = useTodos();
 
 	const overdueTodos = useOverdueTodos(todos);
 	const todayTodos = useTodayTodos(todos);
+
+	const upcomingTodos = useUpcomingTodos(todos);
+	const undatedTodos = useUndatedTodos(todos);
 
 	const [isAddTaskOpen, setIsAddTaskOpen] = useState(false);
 
@@ -34,6 +38,8 @@ const MyDayContainer = () => {
 				<MyDayPage
 					overdueTodos={overdueTodos}
 					todayTodos={todayTodos}
+					upcomingTodos={upcomingTodos}
+					undatedTodos={undatedTodos}
 					actions={actions}
 				/>
 
