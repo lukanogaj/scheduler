@@ -1,126 +1,23 @@
-// import styles from "./TodoRow.module.scss";
-// import { Dots, Dot, Star, Watch, ChevronDown } from "../images/icons";
-// import { useState } from "react";
-
-// const TodoRow = ({ todo, actions }) => {
-// 	const [isExpanded, setIsExpanded] = useState(false);
-
-// 	if (!todo) return <div className={styles.error}>NO TODO PASSED</div>;
-// 	const { completeTodo, updateTodo, deleteTodo } = actions;
-
-// 	const onComplete = () => completeTodo(todo.id);
-
-// 	const onEdit = async () => {
-// 		const nextTitleRaw = prompt("New title", todo.title);
-// 		if (nextTitleRaw === null) return; // Cancel
-
-// 		const nextTitle = nextTitleRaw.trim();
-// 		if (!nextTitle) return; // empty title not allowed
-
-// 		const nextDate = prompt("New date (YYYY-MM-DD)", todo.due_on ?? "");
-// 		if (nextDate === null) return; // Cancel date prompt
-
-// 		const updates = { title: nextTitle };
-
-// 		// IMPORTANT:
-// 		// - empty string "" means "clear date" (Option 1)
-// 		// - non-empty string sets a new date
-// 		updates.due_on = nextDate;
-
-// 		const res = await updateTodo(todo.id, updates);
-// 		if (!res?.ok) {
-// 			alert(res?.error ?? "Failed to update todo");
-// 		}
-// 	};
-
-// 	return (
-// 		<div className={styles.todayCard}>
-// 			<div className={styles.headerToday}>
-// 				<div className={styles.leftBlock}>
-// 					<input
-// 						id={`todo-${todo.id}`}
-// 						className={styles.check}
-// 						type='checkbox'
-// 						checked={!!todo.completed}
-// 						onChange={onComplete}
-// 						aria-label={`Mark ${todo.title} as complete`}
-// 					/>
-
-// 					<div className={styles.textBlock}>
-// 						<label
-// 							className={styles.title}
-// 							htmlFor={`todo-${todo.id}`}>
-// 							{todo.title}
-// 						</label>
-
-// 						<div className={styles.metaRow}>
-// 							{/* <span className={styles.day}>Today</span> */}
-// 							<span className={styles.dotWrap}>
-// 								<Dot className={styles.dot} />
-// 							</span>
-// 							<span className={styles.dayCat}>{todo.listName ?? "Tasks"}</span>
-// 						</div>
-// 					</div>
-// 				</div>
-
-// 				<div className={styles.actions}>
-// 					<div className={styles.topActions}>
-// 						<button
-// 							type='button'
-// 							className={styles.iconBtn}
-// 							onClick={() => setIsExpanded((v) => !v)}
-// 							aria-label={isExpanded ? "Collapse details" : "Expand details"}
-// 							aria-expanded={isExpanded}>
-// 							<ChevronDown
-// 								className={`${styles.icon} ${isExpanded ? styles.chevronOpen : ""}`}
-// 							/>
-// 						</button>
-// 						<button
-// 							type='button'
-// 							className={styles.iconBtn}
-// 							onClick={onEdit}
-// 							aria-label='More actions'>
-// 							<Dots className={styles.icon} />
-// 						</button>
-// 					</div>
-
-// 					<div className={styles.bottomActions}>
-// 						<button
-// 							type='button'
-// 							className={styles.iconBtn}
-// 							disabled
-// 							aria-label='Star (coming soon)'>
-// 							<Star className={styles.icon} />
-// 						</button>
-
-// 						<button
-// 							type='button'
-// 							className={styles.iconBtn}
-// 							disabled
-// 							aria-label='Schedule (coming soon)'>
-// 							<Watch className={styles.icon} />
-// 						</button>
-// 					</div>
-// 				</div>
-// 			</div>
-// 		</div>
-// 	);
-// };
-
-// export default TodoRow;
-
 import styles from "./TodoRow.module.scss";
-import { Dots, Dot, Star, Watch, ChevronDown } from "../images/icons";
+import { Dots, Dot, ChevronDown } from "../images/icons";
 import { useState } from "react";
 
-const TodoRow = ({ todo, actions }) => {
+const TodoRow = ({
+	todo,
+	actions,
+	isMenuOpen,
+	onOpenMenu,
+	onCloseMenu,
+	menuRef,
+	openEditTodo,
+}) => {
 	const [isExpanded, setIsExpanded] = useState(false);
 
 	if (!todo) {
 		return <div className={styles.error}>NO TODO PASSED</div>;
 	}
 
-	const { completeTodo, updateTodo } = actions;
+	const { completeTodo, updateTodo, deleteTodo } = actions;
 
 	const onComplete = () => completeTodo(todo.id);
 
@@ -145,83 +42,104 @@ const TodoRow = ({ todo, actions }) => {
 		}
 	};
 
+	const onDelete = () => {
+		const confirmed = window.confirm("Delete this task?");
+		if (!confirmed) return;
+
+		deleteTodo(todo.id);
+	};
+
+	const toggleExpand = () => {
+		onCloseMenu(); // Michal-proof rule
+		setIsExpanded((v) => !v);
+	};
+
 	return (
-		<div className={styles.todayCard}>
-			<div className={styles.headerToday}>
-				<div className={styles.leftBlock}>
+		<div className={styles.card}>
+			<div
+				className={styles.header}
+				onClick={toggleExpand}>
+				{/* LEFT SIDE */}
+				<div className={styles.content}>
 					<input
-						id={`todo-${todo.id}`}
-						className={styles.check}
+						className={styles.checkbox}
 						type='checkbox'
 						checked={!!todo.completed}
+						onClick={(e) => e.stopPropagation()}
 						onChange={onComplete}
 						aria-label={`Mark ${todo.title} as complete`}
 					/>
 
-					<div className={styles.textBlock}>
-						<label
-							className={styles.title}
-							htmlFor={`todo-${todo.id}`}>
-							{todo.title}
-						</label>
+					<div className={styles.text}>
+						<div className={styles.title}>{todo.title}</div>
 
-						<div className={styles.metaRow}>
-							<span className={styles.dotWrap}>
-								<Dot className={styles.dot} />
+						<div className={styles.meta}>
+							<Dot className={styles.dot} />
+							<span className={styles.category}>
+								{todo.listName ?? "Tasks"}
 							</span>
-							<span className={styles.dayCat}>{todo.listName ?? "Tasks"}</span>
 						</div>
 					</div>
 				</div>
 
-				<div className={styles.actions}>
-					<div className={styles.topActions}>
-						{/* CHEVRON */}
-						<button
-							type='button'
-							className={styles.iconBtn}
-							onClick={() => setIsExpanded((v) => !v)}
-							aria-label={isExpanded ? "Collapse details" : "Expand details"}
-							aria-expanded={isExpanded}>
-							<ChevronDown
-								className={`${styles.icon} ${
-									isExpanded ? styles.chevronOpen : ""
-								}`}
-							/>
-						</button>
+				{/* RIGHT SIDE CONTROLS */}
+				<div className={styles.controls}>
+					{/* CHEVRON */}
+					<button
+						type='button'
+						className={styles.iconBtn}
+						onClick={(e) => {
+							e.stopPropagation();
+							toggleExpand();
+						}}
+						aria-expanded={isExpanded}>
+						<ChevronDown
+							className={`${styles.icon} ${
+								isExpanded ? styles.chevronOpen : ""
+							}`}
+						/>
+					</button>
 
-						{/* THREE DOTS (still wired to edit for now) */}
-						<button
-							type='button'
-							className={styles.iconBtn}
-							onClick={onEdit}
-							aria-label='More actions'>
-							<Dots className={styles.icon} />
-						</button>
-					</div>
+					{/* DOTS */}
+					<button
+						type='button'
+						className={styles.iconBtn}
+						onClick={(e) => {
+							e.stopPropagation();
+							onOpenMenu();
+						}}>
+						<Dots className={styles.icon} />
+					</button>
 
-					{/* Keep for now (will remove later) */}
-					<div className={styles.bottomActions}>
-						<button
-							type='button'
-							className={styles.iconBtn}
-							disabled
-							aria-label='Star (coming soon)'>
-							<Star className={styles.icon} />
-						</button>
+					{/* MENU */}
+					{isMenuOpen && (
+						<div
+							ref={menuRef}
+							className={styles.menu}
+							onClick={(e) => e.stopPropagation()}>
+							<button
+								className={styles.menuItem}
+								onClick={() => {
+									onCloseMenu();
+									openEditTodo();
+								}}>
+								Edit
+							</button>
 
-						<button
-							type='button'
-							className={styles.iconBtn}
-							disabled
-							aria-label='Schedule (coming soon)'>
-							<Watch className={styles.icon} />
-						</button>
-					</div>
+							<button
+								className={`${styles.menuItem} ${styles.danger}`}
+								onClick={() => {
+									onCloseMenu();
+									onDelete();
+								}}>
+								Delete
+							</button>
+						</div>
+					)}
 				</div>
 			</div>
 
-			{/* EXPANDED DETAILS */}
+			{/* EXPANDED CONTENT */}
 			{isExpanded && (
 				<div className={styles.details}>
 					{todo.description?.trim() ? (

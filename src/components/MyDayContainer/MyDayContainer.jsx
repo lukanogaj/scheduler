@@ -21,6 +21,16 @@ const MyDayContainer = () => {
 
 	const [isAddTaskOpen, setIsAddTaskOpen] = useState(false);
 
+	const [editingTodo, setEditingTodo] = useState(null);
+
+	const openEditTodo = () => {
+		setEditingTodo(todo);
+	};
+
+	const closeEditTodo = () => {
+		setEditingTodo(null);
+	};
+
 	const openAddTask = () => setIsAddTaskOpen(true);
 	const closeAddTask = () => setIsAddTaskOpen(false);
 
@@ -28,6 +38,7 @@ const MyDayContainer = () => {
 		deleteTodo,
 		updateTodo,
 		completeTodo,
+		openEditTodo,
 	};
 
 	return (
@@ -42,6 +53,17 @@ const MyDayContainer = () => {
 					undatedTodos={undatedTodos}
 					actions={actions}
 				/>
+
+				{editingTodo && (
+					<EditTodoModal
+						todo={editingTodo}
+						onClose={closeEditTodo}
+						onSave={async (updates) => {
+							await updateTodo(editingTodo.id, updates);
+							closeEditTodo();
+						}}
+					/>
+				)}
 
 				{isAddTaskOpen && (
 					<NewTodoHandler
